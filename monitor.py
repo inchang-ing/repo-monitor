@@ -26,6 +26,8 @@ OWNER = "inchang-ing"
 
 def http(method, url, payload=None, token=None, headers=None):
     h = {"Accept": "application/vnd.github+json", "User-Agent": "repo-monitor"}
+    if payload is not None:
+        h["Content-Type"] = "application/json"
     if token:
         h["Authorization"] = f"Bearer {token}"
     if headers:
@@ -158,7 +160,6 @@ def main():
     cfg = {"app_id": os.environ["FEISHU_APP_ID"],
            "app_secret": os.environ["FEISHU_APP_SECRET"],
            "chat_id": os.environ["FEISHU_CHAT_ID"]}
-    print(f"DBG len app_id={len(os.environ.get('FEISHU_APP_ID',''))} secret={len(os.environ.get('FEISHU_APP_SECRET',''))} chat={len(os.environ.get('FEISHU_CHAT_ID',''))}")
     state = json.loads(STATE_FILE.read_text()) if STATE_FILE.exists() else {}
     init = not bool(state)
     now = datetime.now(timezone.utc)
