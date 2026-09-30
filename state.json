@@ -1,8 +1,15 @@
 {
- "last_check": "2026-09-30T17:24:12.239263+00:00",
+ "last_check": "2026-09-30T17:39:58.004520+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
-  "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00"
+  "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
+  "kyegomez/swarms#2392": "2026-09-30T17:39:58.004520+00:00",
+  "kyegomez/swarms#2391": "2026-09-30T17:39:58.004520+00:00",
+  "kyegomez/swarms#2390": "2026-09-30T17:39:58.004520+00:00",
+  "pydantic/pydantic-ai#9492": "2026-09-30T17:39:58.004520+00:00",
+  "pydantic/pydantic-ai#9488": "2026-09-30T17:39:58.004520+00:00",
+  "pydantic/pydantic-ai#9487": "2026-09-30T17:39:58.004520+00:00",
+  "frappe/frappe#43667": "2026-09-30T17:39:58.004520+00:00"
  },
  "prs": {
   "pylint-dev/pylint#11515": {
@@ -14,7 +21,7 @@
    "reviews": 0
   },
   "pylint-dev/pylint#11512": {
-   "comments": 2,
+   "comments": 3,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/pylint-dev/pylint/pull/11512",
@@ -166,5 +173,5 @@
    "reviews": 1
   }
  },
- "rot_index": 2
+ "rot_index": 0
 }
