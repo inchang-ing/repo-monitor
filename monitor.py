@@ -19,7 +19,7 @@ API = "https://api.github.com"
 FEISHU = "https://open.feishu.cn/open-apis"
 STATE_FILE = Path("state.json")
 REPOS_FILE = Path("repos.txt")
-T3_SLICES = 6
+T3_SLICES = 3
 NOISE = ("ScreenContextAgent",)
 OWNER = "inchang-ing"
 
