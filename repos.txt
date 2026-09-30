@@ -1,0 +1,394 @@
+# always-scanned tier (every run)
+agno-agi/agno
+crewaiinc/crewai
+browser-use/browser-use
+google/adk-python
+langflow-ai/langflow
+microsoft/semantic-kernel
+run-llama/llama_index
+langchain-ai/langchain
+langchain-ai/langgraph
+langchain-ai/langsmith-sdk
+camel-ai/camel
+geekan/metagpt
+openbmb/chatdev
+modelscope/agentscope
+qwenlm/qwen-agent
+bytedance/deer-flow
+microsoft/graphrag
+deepset-ai/haystack
+langroid/langroid
+kyegomez/swarms
+openinterpreter/open-interpreter
+assafelovic/gpt-researcher
+mem0ai/mem0
+julep-ai/julep
+livekit/agents
+upsonic/upsonic
+instructor-ai/instructor
+guidance-ai/guidance
+dottxt-ai/outlines
+jlowin/fastmcp
+modelcontextprotocol/servers
+explodinggradients/ragas
+chroma-core/chroma
+lancedb/lancedb
+paul-gauthier/aider
+swe-agent/swe-agent
+all-hands-ai/openhands
+significant-gravitas/auto-gpt
+agentops-ai/agentops
+comet-ml/opik
+traceloop/openllmetry
+arize-ai/phoenix
+langfuse/langfuse
+huggingface/trl
+huggingface/peft
+huggingface/huggingface_hub
+huggingface/tokenizers
+textualize/textual
+textualize/rich
+prompt-toolkit/python-prompt-toolkit
+openai/openai-python
+openai/openai-agents-python
+stanfordnlp/dspy
+modelcontextprotocol/python-sdk
+pydantic/pydantic-ai
+huggingface/smolagents
+berriai/litellm
+microsoft/autogen
+anthropics/anthropic-sdk-python
+googleapis/python-genai
+confident-ai/deepeval
+truera/trulens
+guardrails-ai/guardrails
+nvidia/nemo-guardrails
+athina-ai/athina-evals
+ukgovernmentbeis/inspect_ai
+eleutherai/lm-evaluation-harness
+openai/evals
+huggingface/lighteval
+parea-ai/parea-sdk-py
+arize-ai/openinference
+whylabs/whylogs
+deepchecks/deepchecks
+cleanlab/cleanlab
+wandb/wandb
+qdrant/qdrant-client
+weaviate/weaviate-python-client
+milvus-io/pymilvus
+unstructured-io/unstructured
+docling-project/docling
+argilla-io/argilla
+llmware-ai/llmware
+embedchain/embedchain
+daily-co/pipecat
+vocodedev/vocode-python
+bolna-ai/bolna
+portkey-ai/portkey-python
+hegel-ai/promptic
+lastmile-ai/mcp-agent
+i-am-bee/beeai-framework
+mozilla-ai/any-agent
+gpt-engineer-org/gpt-engineer
+huggingface/accelerate
+huggingface/setfit
+chainlit/chainlit
+gradio-app/gradio
+
+# rotating tier (1/6 per run, full coverage ~1h)
+R pytest-dev/pytest
+R pylint-dev/pylint
+R pylint-dev/astroid
+R celery/celery
+R scrapy/scrapy
+R psf/black
+R python-poetry/poetry
+R sqlalchemy/sqlalchemy
+R mitmproxy/mitmproxy
+R pygithub/pygithub
+R urllib3/urllib3
+R certbot/certbot
+R aiohttp-libs/aiohttp
+R tqdm/tqdm
+R networkx/networkx
+R psf/requests
+R jd/tenacity
+R ipython/ipython
+R redis/redis-py
+R pypa/setuptools
+R strawberry-graphql/strawberry
+R python/mypy
+R python-attrs/attrs
+R python-websockets/websockets
+R fastapi/typer
+R elastic/elasticsearch-py
+R agronholm/anyio
+R sqlalchemy/alembic
+R agronholm/apscheduler
+R python-markdown/markdown
+R psycopg/psycopg2
+R tobymao/sqlglot
+R pycqa/pydocstyle
+R pycqa/astroid
+R python-jsonschema/jsonschema
+R pycqa/pycodestyle
+R pycqa/pyflakes
+R more-itertools/more-itertools
+R pypa/build
+R pytest-dev/pluggy
+R pytest-dev/execnet
+R executablebooks/markdown-it-py
+R yaml/pyyaml
+R python-poetry/tomlkit
+R pypa/pip
+R pallets/werkzeug
+R jaraco/skeleton
+R tiangolo/typer
+R fastapi/fastapi
+R pydantic/pydantic
+R encode/httpx
+R encode/starlette
+R encode/uvicorn
+R encode/django-rest-framework
+R django/django
+R pandas-dev/pandas
+R numpy/numpy
+R pola-rs/polars
+R matplotlib/matplotlib
+R scikit-learn/scikit-learn
+R pre-commit/pre-commit
+R tox-dev/tox
+R wntrblm/nox
+R pypa/hatch
+R pdm-project/pdm
+R marshmallow-code/marshmallow
+R jcrist/msgspec
+R ijl/orjson
+R dask/dask
+R apache/airflow
+R prefecthq/prefect
+R dagster-io/dagster
+R mlflow/mlflow
+R iterative/dvc
+R facebookresearch/hydra
+R omry/omegaconf
+R great-expectations/great_expectations
+R unionai-oss/pandera
+R streamlit/streamlit
+R plotly/dash
+R bokeh/bokeh
+R altair-viz/altair
+R litestar-org/litestar
+R sanic-org/sanic
+R rq/rq
+R bogdanp/dramatiq
+R coleifer/huey
+R sphinx-doc/sphinx
+R pypa/twine
+R conda/conda
+R optuna/optuna
+R kedro-org/kedro
+R home-assistant/core
+R python-telegram-bot/python-telegram-bot
+R wagtail/wagtail
+R frappe/frappe
+R apache/superset
+R getmoto/moto
+R pytest-dev/pytest-xdist
+R pytest-dev/pytest-mock
+R pytest-dev/pytest-asyncio
+R aio-libs/aiosignal
+R aio-libs/aiohttp-cors
+R aio-libs/janus
+R aio-libs/aiosqlite
+R aio-libs/aiomysql
+R aio-libs/aioredis-py
+R hypothesisworks/hypothesis
+R spulec/freezegun
+R getsentry/responses
+R kevin1024/vcrpy
+R samuelcolvin/dirty-equals
+R python-trio/trio
+R magicstack/asyncpg
+R twisted/twisted
+R giampaolo/psutil
+R gorakhargosh/watchdog
+R pygments/pygments
+R chardet/chardet
+R dateutil/dateutil
+R python-humanize/humanize
+R arrow-py/arrow
+R python-pendulum/pendulum
+R delgan/loguru
+R hynek/structlog
+R getsentry/sentry-python
+R open-telemetry/opentelemetry-python
+R jupyter/nbformat
+R jupyterlab/jupyterlab
+R snakemake/snakemake
+R spotify/luigi
+R jazzband/pip-tools
+R pypa/pipx
+R pypa/virtualenv
+R pypa/packaging
+R python/importlib_metadata
+R gitpython-developers/gitpython
+R paramiko/paramiko
+R pyinvoke/invoke
+R tmbo/questionary
+R coleifer/peewee
+R tortoise/tortoise-orm
+R piccolo-orm/piccolo
+R fastapi/sqlmodel
+R falconry/falcon
+R pylons/pyramid
+R neoteroi/blacksheep
+R spec-first/connexion
+R lepture/authlib
+R jpadilla/pyjwt
+R ccxt/ccxt
+R freqtrade/freqtrade
+R astropy/astropy
+R geopandas/geopandas
+R shapely/shapely
+R pymc-devs/pymc
+R statsmodels/statsmodels
+R scikit-image/scikit-image
+R ibis-project/ibis
+R narwhals-dev/narwhals
+R pydata/xarray
+R zarr-developers/zarr-python
+R scikit-hep/uproot
+R netflix/metaflow
+R sktime/sktime
+R dask/distributed
+R pytest-dev/pytest-bdd
+R pytest-dev/pytest-cov
+R pycqa/bandit
+R pycqa/flake8
+R pycqa/isort
+R python-attrs/cattrs
+R mkdocs/mkdocs
+R squidfunk/mkdocs-material
+R executablebooks/myst-parser
+R jupyter/nbconvert
+R jupyter-server/jupyter_server
+R holoviz/panel
+R zauberzeug/nicegui
+R docker/docker-py
+R microsoft/playwright-python
+R seleniumhq/selenium
+R robotframework/robotframework
+R joke2k/faker
+R factoryboy/factory_boy
+R syrupy-project/syrupy
+R 15r10nk/inline-snapshot
+R biopython/biopython
+R pydicom/pydicom
+R bashtage/linearmodels
+R bashtage/arch
+R apache/iceberg-python
+R delta-io/delta-rs
+R modin-project/modin
+R graphql-python/graphene
+R mirumee/ariadne
+R python/typeshed
+R hynek/stamina
+R pydoit/doit
+R nteract/papermill
+R unit8co/darts
+R awslabs/gluonts
+R scikit-hep/awkward
+R python-poetry/cleo
+R scipy/scipy
+R mwaskom/seaborn
+R plotly/plotly.py
+R duckdb/duckdb
+R holoviz/holoviews
+R holoviz/hvplot
+R pyvista/pyvista
+R sympy/sympy
+R huggingface/datasets
+R nltk/nltk
+R explosion/spacy
+R rare-technologies/gensim
+R dmlc/xgboost
+R ray-project/ray
+R bottlepy/bottle
+R tornadoweb/tornado
+R benoitc/gunicorn
+R supervisor/supervisor
+R pallets/itsdangerous
+R pallets/blinker
+R aio-libs/yarl
+R aio-libs/multidict
+R sdispater/cleo
+R flet-dev/flet
+R reflex-dev/reflex
+R fabric/fabric
+R cookiecutter/cookiecutter
+R copier-org/copier
+R nedbat/coveragepy
+R behave/behave
+R locustio/locust
+R pytest-dev/pytest-timeout
+R pytest-dev/pytest-benchmark
+R pytest-dev/pytest-rerunfailures
+R pypa/wheel
+R python-lsp/python-lsp-server
+R pyjwt/jwt
+R boto/boto3
+R localstack/localstack
+R httpie/httpie
+R ansible/ansible
+R dbt-labs/dbt-core
+R yt-dlp/yt-dlp
+R huggingface/transformers
+R jupyter/notebook
+R spyder-ide/spyder
+R python-pillow/pillow
+R imageio/imageio
+R python-opencv/opencv-python
+R jaraco/inflect
+R jaraco/jaraco.context
+R jaraco/jaraco.functools
+R jaraco/jaraco.text
+R jaraco/jaraco.classes
+R jaraco/jaraco.logging
+R jaraco/jaraco.itertools
+R jaraco/backports
+R jaraco/keyring
+R jaraco/zipp
+R jaraco/tempora
+R jaraco/portend
+R psf/pycodestyle
+R psf/pyflakes
+R psf/requests-html
+R psf/cachecontrol
+R pypa/distutils
+R pypa/pipenv
+R pypa/installer
+R pypa/cibuildwheel
+R pypa/pyproject-hooks
+R pypa/readme_renderer
+R pytest-dev/pytest-forked
+R pytest-dev/pytest-lazy-fixture
+R benjaminp/six
+R mahmoud/boltons
+R suor/funcy
+R pytoolz/toolz
+R tobgu/pyrsistent
+R jab/bidict
+R python-babel/babel
+R pallets/markupsafe
+R grahamdumpleton/wrapt
+R aio-libs/async-timeout
+R seddonym/import-linter
+R boltons/boltons
+R textualize/trogon
+R pydantic/pydantic-settings
+R encode/databases
+R encode/broadcaster
+R encode/httpcore
+R encode/httpx-ws
