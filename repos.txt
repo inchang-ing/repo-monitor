@@ -82,11 +82,9 @@ docling-project/docling
 argilla-io/argilla
 llmware-ai/llmware
 embedchain/embedchain
-daily-co/pipecat
+pipecat-ai/pipecat
 vocodedev/vocode-python
 bolna-ai/bolna
-portkey-ai/portkey-python
-hegel-ai/promptic
 lastmile-ai/mcp-agent
 i-am-bee/beeai-framework
 mozilla-ai/any-agent
@@ -109,7 +107,7 @@ R mitmproxy/mitmproxy
 R pygithub/pygithub
 R urllib3/urllib3
 R certbot/certbot
-R aiohttp-libs/aiohttp
+R aio-libs/aiohttp
 R tqdm/tqdm
 R networkx/networkx
 R psf/requests
@@ -337,7 +335,7 @@ R pytest-dev/pytest-benchmark
 R pytest-dev/pytest-rerunfailures
 R pypa/wheel
 R python-lsp/python-lsp-server
-R pyjwt/jwt
+R jpadilla/pyjwt
 R boto/boto3
 R localstack/localstack
 R httpie/httpie
@@ -349,7 +347,7 @@ R jupyter/notebook
 R spyder-ide/spyder
 R python-pillow/pillow
 R imageio/imageio
-R python-opencv/opencv-python
+R opencv/opencv-python
 R jaraco/inflect
 R jaraco/jaraco.context
 R jaraco/jaraco.functools
@@ -373,7 +371,6 @@ R pypa/cibuildwheel
 R pypa/pyproject-hooks
 R pypa/readme_renderer
 R pytest-dev/pytest-forked
-R pytest-dev/pytest-lazy-fixture
 R benjaminp/six
 R mahmoud/boltons
 R suor/funcy
@@ -385,10 +382,10 @@ R pallets/markupsafe
 R grahamdumpleton/wrapt
 R aio-libs/async-timeout
 R seddonym/import-linter
-R boltons/boltons
+R mahmoud/boltons
 R textualize/trogon
 R pydantic/pydantic-settings
 R encode/databases
 R encode/broadcaster
 R encode/httpcore
-R encode/httpx-ws
+R frankie567/httpx-ws
