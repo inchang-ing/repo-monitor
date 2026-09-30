@@ -1,0 +1,170 @@
+{
+ "last_check": "2026-09-30T17:16:40.482719+00:00",
+ "seen": {
+  "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
+  "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00"
+ },
+ "prs": {
+  "pylint-dev/pylint#11515": {
+   "comments": 2,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/pylint-dev/pylint/pull/11515",
+   "title": "Fix crash on TypeVar used as context manager in a with statement (#11510)",
+   "reviews": 0
+  },
+  "pylint-dev/pylint#11512": {
+   "comments": 2,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/pylint-dev/pylint/pull/11512",
+   "title": "Fix TypeError crash on metaclass with lineno-less name binding (#11511)",
+   "reviews": 0
+  },
+  "jax-ml/jax#41137": {
+   "comments": 2,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/jax-ml/jax/pull/41137",
+   "title": "jax.numpy: forward `initial` from Array.sum() to jnp.sum()",
+   "reviews": 2
+  },
+  "executablebooks/markdown-it-py#443": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/executablebooks/markdown-it-py/pull/443",
+   "title": "fix(parser): fail fast on rules that don't advance state (infinite loop guard)",
+   "reviews": 0
+  },
+  "docling-project/docling#4449": {
+   "comments": 4,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/docling-project/docling/pull/4449",
+   "title": "fix(models): defer the scipy import in the OCR base model",
+   "reviews": 1
+  },
+  "pydicom/pydicom#2385": {
+   "comments": 2,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/pydicom/pydicom/pull/2385",
+   "title": "fix(charset): handle ISO 2022 IR 58 (GB2312) escape sequence (GH#2383)",
+   "reviews": 1
+  },
+  "statsmodels/statsmodels#10327": {
+   "comments": 4,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/statsmodels/statsmodels/pull/10327",
+   "title": "fix(base): honor use_t under nonrobust covariance (GH#10307)",
+   "reviews": 1
+  },
+  "bytedance/deer-flow#6048": {
+   "comments": 1,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/bytedance/deer-flow/pull/6048",
+   "title": "fix(vllm): fall back to legacy reasoning_content field",
+   "reviews": 1
+  },
+  "docling-project/docling#4439": {
+   "comments": 2,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/docling-project/docling/pull/4439",
+   "title": "fix(xb): don't dereference memberQname on typed dimensions",
+   "reviews": 0
+  },
+  "QwenLM/Qwen-Agent#986": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/QwenLM/Qwen-Agent/pull/986",
+   "title": "fix(agents): uniquify dialogue history filenames per run",
+   "reviews": 0
+  },
+  "OpenBMB/ChatDev#682": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/OpenBMB/ChatDev/pull/682",
+   "title": "fix(utils): register dynamic tool modules in sys.modules before exec",
+   "reviews": 0
+  },
+  "yaml/pyyaml#967": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/yaml/pyyaml/pull/967",
+   "title": "Quote leading-zero digit strings when dumping",
+   "reviews": 0
+  },
+  "567-labs/instructor#2717": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/567-labs/instructor/pull/2717",
+   "title": "fix(gemini): do not mutate caller-owned messages in MD_JSON mode",
+   "reviews": 0
+  },
+  "agno-agi/agno#10654": {
+   "comments": 3,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/agno-agi/agno/pull/10654",
+   "title": "[fix] Don't crash when a JSON fragment provides a scalar before a list",
+   "reviews": 1
+  },
+  "bokeh/bokeh#15476": {
+   "comments": 1,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/bokeh/bokeh/pull/15476",
+   "title": "Group legend_group columns whose values cannot be ordered",
+   "reviews": 2
+  },
+  "mirumee/ariadne#1337": {
+   "comments": 3,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/mirumee/ariadne/pull/1337",
+   "title": "Pin graphql-core below 3.3.0",
+   "reviews": 0
+  },
+  "executablebooks/markdown-it-py#442": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/executablebooks/markdown-it-py/pull/442",
+   "title": "fix(block): HTML block start outside a list item closes the list",
+   "reviews": 0
+  },
+  "pytest-dev/execnet#431": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/pytest-dev/execnet/pull/431",
+   "title": "fix: observe terminated workers and report safe_terminate outcome",
+   "reviews": 0
+  },
+  "pypa/setuptools#5337": {
+   "comments": 2,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/pypa/setuptools/pull/5337",
+   "title": "Extract tar members through the tarfile data filter",
+   "reviews": 1
+  },
+  "crewAIInc/crewAI#7795": {
+   "comments": 5,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/crewAIInc/crewAI/pull/7795",
+   "title": "fix(openai): allow multimodal file inputs for GPT-6 Astra",
+   "reviews": 1
+  }
+ },
+ "rot_index": 1
+}
