@@ -1,5 +1,5 @@
 {
- "last_check": "2026-09-30T17:39:58.004520+00:00",
+ "last_check": "2026-09-30T22:07:27.797081+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -9,9 +9,54 @@
   "pydantic/pydantic-ai#9492": "2026-09-30T17:39:58.004520+00:00",
   "pydantic/pydantic-ai#9488": "2026-09-30T17:39:58.004520+00:00",
   "pydantic/pydantic-ai#9487": "2026-09-30T17:39:58.004520+00:00",
-  "frappe/frappe#43667": "2026-09-30T17:39:58.004520+00:00"
+  "frappe/frappe#43667": "2026-09-30T17:39:58.004520+00:00",
+  "agno-agi/agno#10693": "2026-09-30T22:07:27.797081+00:00",
+  "agno-agi/agno#10692": "2026-09-30T22:07:27.797081+00:00",
+  "agno-agi/agno#10691": "2026-09-30T22:07:27.797081+00:00",
+  "agno-agi/agno#10690": "2026-09-30T22:07:27.797081+00:00",
+  "google/adk-python#7362": "2026-09-30T22:07:27.797081+00:00",
+  "langflow-ai/langflow#15480": "2026-09-30T22:07:27.797081+00:00",
+  "langchain-ai/langchain#40935": "2026-09-30T22:07:27.797081+00:00",
+  "modelscope/agentscope#3065": "2026-09-30T22:07:27.797081+00:00",
+  "deepset-ai/haystack#13046": "2026-09-30T22:07:27.797081+00:00",
+  "deepset-ai/haystack#13045": "2026-09-30T22:07:27.797081+00:00",
+  "mem0ai/mem0#7518": "2026-09-30T22:07:27.797081+00:00",
+  "jlowin/fastmcp#5367": "2026-09-30T22:07:27.797081+00:00",
+  "jlowin/fastmcp#5365": "2026-09-30T22:07:27.797081+00:00",
+  "explodinggradients/ragas#3045": "2026-09-30T22:07:27.797081+00:00",
+  "all-hands-ai/openhands#17836": "2026-09-30T22:07:27.797081+00:00",
+  "all-hands-ai/openhands#17834": "2026-09-30T22:07:27.797081+00:00",
+  "all-hands-ai/openhands#17833": "2026-09-30T22:07:27.797081+00:00",
+  "arize-ai/phoenix#16643": "2026-09-30T22:07:27.797081+00:00",
+  "arize-ai/phoenix#16642": "2026-09-30T22:07:27.797081+00:00",
+  "huggingface/huggingface_hub#5049": "2026-09-30T22:07:27.797081+00:00",
+  "textualize/rich#4231": "2026-09-30T22:07:27.797081+00:00",
+  "modelcontextprotocol/python-sdk#3601": "2026-09-30T22:07:27.797081+00:00",
+  "pydantic/pydantic-ai#9514": "2026-09-30T22:07:27.797081+00:00",
+  "pydantic/pydantic-ai#9508": "2026-09-30T22:07:27.797081+00:00",
+  "berriai/litellm#43925": "2026-09-30T22:07:27.797081+00:00",
+  "berriai/litellm#43922": "2026-09-30T22:07:27.797081+00:00",
+  "berriai/litellm#43910": "2026-09-30T22:07:27.797081+00:00",
+  "embedchain/embedchain#7518": "2026-09-30T22:07:27.797081+00:00",
+  "aio-libs/aiohttp#13890": "2026-09-30T22:07:27.797081+00:00",
+  "apache/airflow#73981": "2026-09-30T22:07:27.797081+00:00",
+  "open-telemetry/opentelemetry-python#5716": "2026-09-30T22:07:27.797081+00:00",
+  "scipy/scipy#26320": "2026-09-30T22:07:27.797081+00:00",
+  "scipy/scipy#26317": "2026-09-30T22:07:27.797081+00:00",
+  "duckdb/duckdb#26300": "2026-09-30T22:07:27.797081+00:00",
+  "yt-dlp/yt-dlp#17756": "2026-09-30T22:07:27.797081+00:00",
+  "spyder-ide/spyder#26382": "2026-09-30T22:07:27.797081+00:00",
+  "jaraco/keyring#772": "2026-09-30T22:07:27.797081+00:00"
  },
  "prs": {
+  "open-telemetry/opentelemetry-python#5717": {
+   "comments": 2,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/open-telemetry/opentelemetry-python/pull/5717",
+   "title": "fix(metrics): reset the exponent mapping between DELTA collections",
+   "reviews": 0
+  },
   "pylint-dev/pylint#11515": {
    "comments": 2,
    "state": "open",
@@ -27,14 +72,6 @@
    "url": "https://github.com/pylint-dev/pylint/pull/11512",
    "title": "Fix TypeError crash on metaclass with lineno-less name binding (#11511)",
    "reviews": 0
-  },
-  "jax-ml/jax#41137": {
-   "comments": 2,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/jax-ml/jax/pull/41137",
-   "title": "jax.numpy: forward `initial` from Array.sum() to jnp.sum()",
-   "reviews": 2
   },
   "executablebooks/markdown-it-py#443": {
    "comments": 0,
@@ -173,5 +210,5 @@
    "reviews": 1
   }
  },
- "rot_index": 0
+ "rot_index": 1
 }
