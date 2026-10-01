@@ -1,5 +1,5 @@
 {
- "last_check": "2026-09-30T22:07:27.797081+00:00",
+ "last_check": "2026-10-01T01:27:07.742842+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -46,7 +46,42 @@
   "duckdb/duckdb#26300": "2026-09-30T22:07:27.797081+00:00",
   "yt-dlp/yt-dlp#17756": "2026-09-30T22:07:27.797081+00:00",
   "spyder-ide/spyder#26382": "2026-09-30T22:07:27.797081+00:00",
-  "jaraco/keyring#772": "2026-09-30T22:07:27.797081+00:00"
+  "jaraco/keyring#772": "2026-09-30T22:07:27.797081+00:00",
+  "agno-agi/agno#10694": "2026-10-01T01:27:07.742842+00:00",
+  "browser-use/browser-use#5957": "2026-10-01T01:27:07.742842+00:00",
+  "langchain-ai/langchain#40936": "2026-10-01T01:27:07.742842+00:00",
+  "bytedance/deer-flow#6131": "2026-10-01T01:27:07.742842+00:00",
+  "microsoft/graphrag#2583": "2026-10-01T01:27:07.742842+00:00",
+  "jlowin/fastmcp#5369": "2026-10-01T01:27:07.742842+00:00",
+  "jlowin/fastmcp#5368": "2026-10-01T01:27:07.742842+00:00",
+  "modelcontextprotocol/servers#4924": "2026-10-01T01:27:07.742842+00:00",
+  "modelcontextprotocol/servers#4923": "2026-10-01T01:27:07.742842+00:00",
+  "modelcontextprotocol/servers#4922": "2026-10-01T01:27:07.742842+00:00",
+  "modelcontextprotocol/servers#4919": "2026-10-01T01:27:07.742842+00:00",
+  "all-hands-ai/openhands#17841": "2026-10-01T01:27:07.742842+00:00",
+  "comet-ml/opik#8665": "2026-10-01T01:27:07.742842+00:00",
+  "pydantic/pydantic-ai#9519": "2026-10-01T01:27:07.742842+00:00",
+  "pydantic/pydantic-ai#9517": "2026-10-01T01:27:07.742842+00:00",
+  "pydantic/pydantic-ai#9516": "2026-10-01T01:27:07.742842+00:00",
+  "berriai/litellm#43947": "2026-10-01T01:27:07.742842+00:00",
+  "berriai/litellm#43946": "2026-10-01T01:27:07.742842+00:00",
+  "berriai/litellm#43945": "2026-10-01T01:27:07.742842+00:00",
+  "ukgovernmentbeis/inspect_ai#5628": "2026-10-01T01:27:07.742842+00:00",
+  "eleutherai/lm-evaluation-harness#4277": "2026-10-01T01:27:07.742842+00:00",
+  "eleutherai/lm-evaluation-harness#4276": "2026-10-01T01:27:07.742842+00:00",
+  "arize-ai/openinference#3893": "2026-10-01T01:27:07.742842+00:00",
+  "arize-ai/openinference#3891": "2026-10-01T01:27:07.742842+00:00",
+  "qdrant/qdrant-client#1516": "2026-10-01T01:27:07.742842+00:00",
+  "weaviate/weaviate-python-client#2179": "2026-10-01T01:27:07.742842+00:00",
+  "weaviate/weaviate-python-client#2178": "2026-10-01T01:27:07.742842+00:00",
+  "unstructured-io/unstructured#4512": "2026-10-01T01:27:07.742842+00:00",
+  "docling-project/docling#4459": "2026-10-01T01:27:07.742842+00:00",
+  "sqlalchemy/sqlalchemy#13626": "2026-10-01T01:27:07.742842+00:00",
+  "pandas-dev/pandas#70005": "2026-10-01T01:27:07.742842+00:00",
+  "plotly/dash#4029": "2026-10-01T01:27:07.742842+00:00",
+  "wagtail/wagtail#14671": "2026-10-01T01:27:07.742842+00:00",
+  "pydata/xarray#11652": "2026-10-01T01:27:07.742842+00:00",
+  "huggingface/transformers#49214": "2026-10-01T01:27:07.742842+00:00"
  },
  "prs": {
   "open-telemetry/opentelemetry-python#5717": {
@@ -105,14 +140,6 @@
    "title": "fix(base): honor use_t under nonrobust covariance (GH#10307)",
    "reviews": 1
   },
-  "bytedance/deer-flow#6048": {
-   "comments": 1,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/bytedance/deer-flow/pull/6048",
-   "title": "fix(vllm): fall back to legacy reasoning_content field",
-   "reviews": 1
-  },
   "docling-project/docling#4439": {
    "comments": 2,
    "state": "open",
@@ -159,7 +186,7 @@
    "merged_at": null,
    "url": "https://github.com/agno-agi/agno/pull/10654",
    "title": "[fix] Don't crash when a JSON fragment provides a scalar before a list",
-   "reviews": 1
+   "reviews": 2
   },
   "bokeh/bokeh#15476": {
    "comments": 1,
@@ -210,5 +237,5 @@
    "reviews": 1
   }
  },
- "rot_index": 1
+ "rot_index": 2
 }
