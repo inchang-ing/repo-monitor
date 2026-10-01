@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-01T15:20:32.316520+00:00",
+ "last_check": "2026-10-01T20:26:53.651188+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -240,7 +240,75 @@
   "duckdb/duckdb#26328": "2026-10-01T15:20:32.316520+00:00",
   "duckdb/duckdb#26327": "2026-10-01T15:20:32.316520+00:00",
   "httpie/httpie#1965": "2026-10-01T15:20:32.316520+00:00",
-  "yt-dlp/yt-dlp#17758": "2026-10-01T15:20:32.316520+00:00"
+  "yt-dlp/yt-dlp#17758": "2026-10-01T15:20:32.316520+00:00",
+  "agno-agi/agno#10714": "2026-10-01T20:26:53.651188+00:00",
+  "agno-agi/agno#10712": "2026-10-01T20:26:53.651188+00:00",
+  "agno-agi/agno#10710": "2026-10-01T20:26:53.651188+00:00",
+  "browser-use/browser-use#5964": "2026-10-01T20:26:53.651188+00:00",
+  "browser-use/browser-use#5961": "2026-10-01T20:26:53.651188+00:00",
+  "microsoft/semantic-kernel#14522": "2026-10-01T20:26:53.651188+00:00",
+  "microsoft/semantic-kernel#14521": "2026-10-01T20:26:53.651188+00:00",
+  "run-llama/llama_index#23326": "2026-10-01T20:26:53.651188+00:00",
+  "langchain-ai/langgraph#9164": "2026-10-01T20:26:53.651188+00:00",
+  "deepset-ai/haystack#13067": "2026-10-01T20:26:53.651188+00:00",
+  "deepset-ai/haystack#13065": "2026-10-01T20:26:53.651188+00:00",
+  "livekit/agents#7569": "2026-10-01T20:26:53.651188+00:00",
+  "jlowin/fastmcp#5382": "2026-10-01T20:26:53.651188+00:00",
+  "all-hands-ai/openhands#17846": "2026-10-01T20:26:53.651188+00:00",
+  "all-hands-ai/openhands#17844": "2026-10-01T20:26:53.651188+00:00",
+  "traceloop/openllmetry#4538": "2026-10-01T20:26:53.651188+00:00",
+  "traceloop/openllmetry#4537": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/phoenix#16679": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/phoenix#16673": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/phoenix#16672": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/phoenix#16671": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/phoenix#16670": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/phoenix#16669": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/phoenix#16668": "2026-10-01T20:26:53.651188+00:00",
+  "huggingface/trl#7478": "2026-10-01T20:26:53.651188+00:00",
+  "huggingface/peft#3863": "2026-10-01T20:26:53.651188+00:00",
+  "huggingface/peft#3861": "2026-10-01T20:26:53.651188+00:00",
+  "openai/openai-agents-python#5275": "2026-10-01T20:26:53.651188+00:00",
+  "stanfordnlp/dspy#10552": "2026-10-01T20:26:53.651188+00:00",
+  "stanfordnlp/dspy#10551": "2026-10-01T20:26:53.651188+00:00",
+  "stanfordnlp/dspy#10550": "2026-10-01T20:26:53.651188+00:00",
+  "stanfordnlp/dspy#10549": "2026-10-01T20:26:53.651188+00:00",
+  "stanfordnlp/dspy#10548": "2026-10-01T20:26:53.651188+00:00",
+  "stanfordnlp/dspy#10547": "2026-10-01T20:26:53.651188+00:00",
+  "stanfordnlp/dspy#10546": "2026-10-01T20:26:53.651188+00:00",
+  "stanfordnlp/dspy#10545": "2026-10-01T20:26:53.651188+00:00",
+  "pydantic/pydantic-ai#9572": "2026-10-01T20:26:53.651188+00:00",
+  "pydantic/pydantic-ai#9557": "2026-10-01T20:26:53.651188+00:00",
+  "pydantic/pydantic-ai#9555": "2026-10-01T20:26:53.651188+00:00",
+  "pydantic/pydantic-ai#9554": "2026-10-01T20:26:53.651188+00:00",
+  "huggingface/smolagents#2877": "2026-10-01T20:26:53.651188+00:00",
+  "berriai/litellm#44051": "2026-10-01T20:26:53.651188+00:00",
+  "berriai/litellm#44050": "2026-10-01T20:26:53.651188+00:00",
+  "berriai/litellm#44049": "2026-10-01T20:26:53.651188+00:00",
+  "berriai/litellm#44048": "2026-10-01T20:26:53.651188+00:00",
+  "berriai/litellm#44047": "2026-10-01T20:26:53.651188+00:00",
+  "microsoft/autogen#8303": "2026-10-01T20:26:53.651188+00:00",
+  "googleapis/python-genai#3031": "2026-10-01T20:26:53.651188+00:00",
+  "truera/trulens#2877": "2026-10-01T20:26:53.651188+00:00",
+  "truera/trulens#2876": "2026-10-01T20:26:53.651188+00:00",
+  "truera/trulens#2875": "2026-10-01T20:26:53.651188+00:00",
+  "nvidia/nemo-guardrails#2426": "2026-10-01T20:26:53.651188+00:00",
+  "ukgovernmentbeis/inspect_ai#5655": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/openinference#3912": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/openinference#3904": "2026-10-01T20:26:53.651188+00:00",
+  "arize-ai/openinference#3903": "2026-10-01T20:26:53.651188+00:00",
+  "docling-project/docling#4485": "2026-10-01T20:26:53.651188+00:00",
+  "docling-project/docling#4481": "2026-10-01T20:26:53.651188+00:00",
+  "pipecat-ai/pipecat#6015": "2026-10-01T20:26:53.651188+00:00",
+  "pipecat-ai/pipecat#6009": "2026-10-01T20:26:53.651188+00:00",
+  "sqlalchemy/sqlalchemy#13631": "2026-10-01T20:26:53.651188+00:00",
+  "sqlalchemy/sqlalchemy#13630": "2026-10-01T20:26:53.651188+00:00",
+  "pandas-dev/pandas#70087": "2026-10-01T20:26:53.651188+00:00",
+  "pandas-dev/pandas#70086": "2026-10-01T20:26:53.651188+00:00",
+  "plotly/dash#4032": "2026-10-01T20:26:53.651188+00:00",
+  "ray-project/ray#66634": "2026-10-01T20:26:53.651188+00:00",
+  "huggingface/transformers#49238": "2026-10-01T20:26:53.651188+00:00",
+  "huggingface/transformers#49237": "2026-10-01T20:26:53.651188+00:00"
  },
  "prs": {
   "pylint-dev/astroid#3334": {
@@ -257,14 +325,6 @@
    "merged_at": null,
    "url": "https://github.com/snowflakedb/snowflake-connector-python/pull/3046",
    "title": "fix: honor external_browser_timeout in the externalbrowser flow",
-   "reviews": 0
-  },
-  "networkx/networkx#8935": {
-   "comments": 0,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/networkx/networkx/pull/8935",
-   "title": "Raise NetworkXUnfeasible from capacity_scaling when the residual network has no edges",
    "reviews": 0
   },
   "open-telemetry/opentelemetry-python#5717": {
@@ -313,14 +373,6 @@
    "merged_at": null,
    "url": "https://github.com/pydicom/pydicom/pull/2385",
    "title": "fix(charset): handle ISO 2022 IR 58 (GB2312) escape sequence (GH#2383)",
-   "reviews": 1
-  },
-  "statsmodels/statsmodels#10327": {
-   "comments": 5,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/statsmodels/statsmodels/pull/10327",
-   "title": "fix(base): honor use_t under nonrobust covariance (GH#10307)",
    "reviews": 1
   },
   "docling-project/docling#4439": {
@@ -412,5 +464,5 @@
    "reviews": 1
   }
  },
- "rot_index": 1
+ "rot_index": 2
 }
