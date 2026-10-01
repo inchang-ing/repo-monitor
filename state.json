@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-01T01:27:07.742842+00:00",
+ "last_check": "2026-10-01T07:41:46.174310+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -81,9 +81,82 @@
   "plotly/dash#4029": "2026-10-01T01:27:07.742842+00:00",
   "wagtail/wagtail#14671": "2026-10-01T01:27:07.742842+00:00",
   "pydata/xarray#11652": "2026-10-01T01:27:07.742842+00:00",
-  "huggingface/transformers#49214": "2026-10-01T01:27:07.742842+00:00"
+  "huggingface/transformers#49214": "2026-10-01T01:27:07.742842+00:00",
+  "agno-agi/agno#10699": "2026-10-01T07:41:46.174310+00:00",
+  "agno-agi/agno#10697": "2026-10-01T07:41:46.174310+00:00",
+  "agno-agi/agno#10695": "2026-10-01T07:41:46.174310+00:00",
+  "langchain-ai/langchain#40967": "2026-10-01T07:41:46.174310+00:00",
+  "langchain-ai/langchain#40965": "2026-10-01T07:41:46.174310+00:00",
+  "langchain-ai/langgraph#9143": "2026-10-01T07:41:46.174310+00:00",
+  "modelscope/agentscope#3071": "2026-10-01T07:41:46.174310+00:00",
+  "bytedance/deer-flow#6146": "2026-10-01T07:41:46.174310+00:00",
+  "bytedance/deer-flow#6144": "2026-10-01T07:41:46.174310+00:00",
+  "bytedance/deer-flow#6141": "2026-10-01T07:41:46.174310+00:00",
+  "langroid/langroid#1158": "2026-10-01T07:41:46.174310+00:00",
+  "langroid/langroid#1157": "2026-10-01T07:41:46.174310+00:00",
+  "livekit/agents#7562": "2026-10-01T07:41:46.174310+00:00",
+  "instructor-ai/instructor#2730": "2026-10-01T07:41:46.174310+00:00",
+  "modelcontextprotocol/servers#4934": "2026-10-01T07:41:46.174310+00:00",
+  "modelcontextprotocol/servers#4931": "2026-10-01T07:41:46.174310+00:00",
+  "modelcontextprotocol/servers#4930": "2026-10-01T07:41:46.174310+00:00",
+  "paul-gauthier/aider#5794": "2026-10-01T07:41:46.174310+00:00",
+  "significant-gravitas/auto-gpt#15091": "2026-10-01T07:41:46.174310+00:00",
+  "langfuse/langfuse#18108": "2026-10-01T07:41:46.174310+00:00",
+  "huggingface/peft#3854": "2026-10-01T07:41:46.174310+00:00",
+  "modelcontextprotocol/python-sdk#3605": "2026-10-01T07:41:46.174310+00:00",
+  "pydantic/pydantic-ai#9524": "2026-10-01T07:41:46.174310+00:00",
+  "pydantic/pydantic-ai#9521": "2026-10-01T07:41:46.174310+00:00",
+  "pydantic/pydantic-ai#9520": "2026-10-01T07:41:46.174310+00:00",
+  "huggingface/smolagents#2870": "2026-10-01T07:41:46.174310+00:00",
+  "berriai/litellm#43992": "2026-10-01T07:41:46.174310+00:00",
+  "berriai/litellm#43990": "2026-10-01T07:41:46.174310+00:00",
+  "confident-ai/deepeval#3401": "2026-10-01T07:41:46.174310+00:00",
+  "truera/trulens#2870": "2026-10-01T07:41:46.174310+00:00",
+  "eleutherai/lm-evaluation-harness#4283": "2026-10-01T07:41:46.174310+00:00",
+  "eleutherai/lm-evaluation-harness#4282": "2026-10-01T07:41:46.174310+00:00",
+  "eleutherai/lm-evaluation-harness#4278": "2026-10-01T07:41:46.174310+00:00",
+  "arize-ai/openinference#3894": "2026-10-01T07:41:46.174310+00:00",
+  "docling-project/docling#4466": "2026-10-01T07:41:46.174310+00:00",
+  "docling-project/docling#4464": "2026-10-01T07:41:46.174310+00:00",
+  "docling-project/docling#4462": "2026-10-01T07:41:46.174310+00:00",
+  "pipecat-ai/pipecat#5993": "2026-10-01T07:41:46.174310+00:00",
+  "gradio-app/gradio#13929": "2026-10-01T07:41:46.174310+00:00",
+  "facebookresearch/hydra#3498": "2026-10-01T07:41:46.174310+00:00",
+  "home-assistant/core#183848": "2026-10-01T07:41:46.174310+00:00",
+  "home-assistant/core#183846": "2026-10-01T07:41:46.174310+00:00",
+  "home-assistant/core#183833": "2026-10-01T07:41:46.174310+00:00",
+  "home-assistant/core#183829": "2026-10-01T07:41:46.174310+00:00",
+  "home-assistant/core#183827": "2026-10-01T07:41:46.174310+00:00",
+  "frappe/frappe#43699": "2026-10-01T07:41:46.174310+00:00",
+  "frappe/frappe#43698": "2026-10-01T07:41:46.174310+00:00",
+  "frappe/frappe#43697": "2026-10-01T07:41:46.174310+00:00",
+  "frappe/frappe#43696": "2026-10-01T07:41:46.174310+00:00",
+  "frappe/frappe#43692": "2026-10-01T07:41:46.174310+00:00",
+  "frappe/frappe#43689": "2026-10-01T07:41:46.174310+00:00",
+  "frappe/frappe#43686": "2026-10-01T07:41:46.174310+00:00",
+  "astropy/astropy#20512": "2026-10-01T07:41:46.174310+00:00",
+  "zarr-developers/zarr-python#4459": "2026-10-01T07:41:46.174310+00:00",
+  "dbt-labs/dbt-core#16540": "2026-10-01T07:41:46.174310+00:00",
+  "dbt-labs/dbt-core#16539": "2026-10-01T07:41:46.174310+00:00",
+  "dbt-labs/dbt-core#16538": "2026-10-01T07:41:46.174310+00:00"
  },
  "prs": {
+  "snowflakedb/snowflake-connector-python#3046": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/snowflakedb/snowflake-connector-python/pull/3046",
+   "title": "fix: honor external_browser_timeout in the externalbrowser flow",
+   "reviews": 0
+  },
+  "networkx/networkx#8935": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/networkx/networkx/pull/8935",
+   "title": "Raise NetworkXUnfeasible from capacity_scaling when the residual network has no edges",
+   "reviews": 0
+  },
   "open-telemetry/opentelemetry-python#5717": {
    "comments": 2,
    "state": "open",
@@ -101,7 +174,7 @@
    "reviews": 0
   },
   "pylint-dev/pylint#11512": {
-   "comments": 3,
+   "comments": 4,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/pylint-dev/pylint/pull/11512",
@@ -117,7 +190,7 @@
    "reviews": 0
   },
   "docling-project/docling#4449": {
-   "comments": 4,
+   "comments": 5,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/docling-project/docling/pull/4449",
@@ -133,7 +206,7 @@
    "reviews": 1
   },
   "statsmodels/statsmodels#10327": {
-   "comments": 4,
+   "comments": 5,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/statsmodels/statsmodels/pull/10327",
@@ -179,14 +252,6 @@
    "url": "https://github.com/567-labs/instructor/pull/2717",
    "title": "fix(gemini): do not mutate caller-owned messages in MD_JSON mode",
    "reviews": 0
-  },
-  "agno-agi/agno#10654": {
-   "comments": 3,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/agno-agi/agno/pull/10654",
-   "title": "[fix] Don't crash when a JSON fragment provides a scalar before a list",
-   "reviews": 2
   },
   "bokeh/bokeh#15476": {
    "comments": 1,
@@ -237,5 +302,5 @@
    "reviews": 1
   }
  },
- "rot_index": 2
+ "rot_index": 0
 }
