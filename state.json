@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-02T18:39:00.799403+00:00",
+ "last_check": "2026-10-02T22:54:04.428348+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -603,7 +603,50 @@
   "dbt-labs/dbt-core#16583": "2026-10-02T18:39:00.799403+00:00",
   "dbt-labs/dbt-core#16582": "2026-10-02T18:39:00.799403+00:00",
   "dbt-labs/dbt-core#16581": "2026-10-02T18:39:00.799403+00:00",
-  "dbt-labs/dbt-core#16580": "2026-10-02T18:39:00.799403+00:00"
+  "dbt-labs/dbt-core#16580": "2026-10-02T18:39:00.799403+00:00",
+  "google/adk-python#7385": "2026-10-02T22:54:04.428348+00:00",
+  "google/adk-python#7384": "2026-10-02T22:54:04.428348+00:00",
+  "langchain-ai/langchain#41007": "2026-10-02T22:54:04.428348+00:00",
+  "kyegomez/swarms#2429": "2026-10-02T22:54:04.428348+00:00",
+  "kyegomez/swarms#2428": "2026-10-02T22:54:04.428348+00:00",
+  "kyegomez/swarms#2427": "2026-10-02T22:54:04.428348+00:00",
+  "kyegomez/swarms#2426": "2026-10-02T22:54:04.428348+00:00",
+  "kyegomez/swarms#2424": "2026-10-02T22:54:04.428348+00:00",
+  "kyegomez/swarms#2423": "2026-10-02T22:54:04.428348+00:00",
+  "paul-gauthier/aider#5800": "2026-10-02T22:54:04.428348+00:00",
+  "all-hands-ai/openhands#17872": "2026-10-02T22:54:04.428348+00:00",
+  "all-hands-ai/openhands#17871": "2026-10-02T22:54:04.428348+00:00",
+  "significant-gravitas/auto-gpt#15151": "2026-10-02T22:54:04.428348+00:00",
+  "langfuse/langfuse#18182": "2026-10-02T22:54:04.428348+00:00",
+  "huggingface/trl#7509": "2026-10-02T22:54:04.428348+00:00",
+  "textualize/textual#6726": "2026-10-02T22:54:04.428348+00:00",
+  "openai/openai-agents-python#5288": "2026-10-02T22:54:04.428348+00:00",
+  "openai/openai-agents-python#5287": "2026-10-02T22:54:04.428348+00:00",
+  "openai/openai-agents-python#5286": "2026-10-02T22:54:04.428348+00:00",
+  "pydantic/pydantic-ai#9693": "2026-10-02T22:54:04.428348+00:00",
+  "pydantic/pydantic-ai#9691": "2026-10-02T22:54:04.428348+00:00",
+  "pydantic/pydantic-ai#9689": "2026-10-02T22:54:04.428348+00:00",
+  "pydantic/pydantic-ai#9686": "2026-10-02T22:54:04.428348+00:00",
+  "berriai/litellm#44262": "2026-10-02T22:54:04.428348+00:00",
+  "berriai/litellm#44250": "2026-10-02T22:54:04.428348+00:00",
+  "berriai/litellm#44242": "2026-10-02T22:54:04.428348+00:00",
+  "arize-ai/openinference#3925": "2026-10-02T22:54:04.428348+00:00",
+  "arize-ai/openinference#3923": "2026-10-02T22:54:04.428348+00:00",
+  "pola-rs/polars#29708": "2026-10-02T22:54:04.428348+00:00",
+  "mlflow/mlflow#26376": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44923": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44922": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44921": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44920": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44919": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44918": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44917": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44916": "2026-10-02T22:54:04.428348+00:00",
+  "apache/superset#44915": "2026-10-02T22:54:04.428348+00:00",
+  "python-humanize/humanize#431": "2026-10-02T22:54:04.428348+00:00",
+  "aio-libs/multidict#1654": "2026-10-02T22:54:04.428348+00:00",
+  "reflex-dev/reflex#7391": "2026-10-02T22:54:04.428348+00:00",
+  "yt-dlp/yt-dlp#17764": "2026-10-02T22:54:04.428348+00:00"
  },
  "prs": {
   "weaviate/weaviate-python-client#2180": {
@@ -637,14 +680,6 @@
    "url": "https://github.com/open-telemetry/opentelemetry-python/pull/5717",
    "title": "fix(metrics): reset the exponent mapping between DELTA collections",
    "reviews": 0
-  },
-  "pylint-dev/pylint#11515": {
-   "comments": 2,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/pylint-dev/pylint/pull/11515",
-   "title": "Fix crash on TypeVar used as context manager in a with statement (#11510)",
-   "reviews": 2
   },
   "executablebooks/markdown-it-py#443": {
    "comments": 0,
@@ -759,5 +794,5 @@
    "reviews": 1
   }
  },
- "rot_index": 0
+ "rot_index": 1
 }
