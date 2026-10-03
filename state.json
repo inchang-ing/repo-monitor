@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-03T17:32:55.670731+00:00",
+ "last_check": "2026-10-03T20:55:22.305867+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -806,7 +806,48 @@
   "pydantic/pydantic#13927": "2026-10-03T17:32:55.670731+00:00",
   "getmoto/moto#10324": "2026-10-03T17:32:55.670731+00:00",
   "sympy/sympy#30656": "2026-10-03T17:32:55.670731+00:00",
-  "huggingface/transformers#49281": "2026-10-03T17:32:55.670731+00:00"
+  "huggingface/transformers#49281": "2026-10-03T17:32:55.670731+00:00",
+  "crewaiinc/crewai#7873": "2026-10-03T20:55:22.305867+00:00",
+  "crewaiinc/crewai#7871": "2026-10-03T20:55:22.305867+00:00",
+  "browser-use/browser-use#5988": "2026-10-03T20:55:22.305867+00:00",
+  "browser-use/browser-use#5987": "2026-10-03T20:55:22.305867+00:00",
+  "google/adk-python#7397": "2026-10-03T20:55:22.305867+00:00",
+  "run-llama/llama_index#23351": "2026-10-03T20:55:22.305867+00:00",
+  "langchain-ai/langchain#41029": "2026-10-03T20:55:22.305867+00:00",
+  "langchain-ai/langchain#41028": "2026-10-03T20:55:22.305867+00:00",
+  "langchain-ai/langchain#41027": "2026-10-03T20:55:22.305867+00:00",
+  "langchain-ai/langchain#41026": "2026-10-03T20:55:22.305867+00:00",
+  "langchain-ai/langchain#41025": "2026-10-03T20:55:22.305867+00:00",
+  "langchain-ai/langgraph#9180": "2026-10-03T20:55:22.305867+00:00",
+  "camel-ai/camel#4389": "2026-10-03T20:55:22.305867+00:00",
+  "modelscope/agentscope#3110": "2026-10-03T20:55:22.305867+00:00",
+  "modelscope/agentscope#3108": "2026-10-03T20:55:22.305867+00:00",
+  "modelscope/agentscope#3105": "2026-10-03T20:55:22.305867+00:00",
+  "bytedance/deer-flow#6246": "2026-10-03T20:55:22.305867+00:00",
+  "livekit/agents#7604": "2026-10-03T20:55:22.305867+00:00",
+  "comet-ml/opik#8719": "2026-10-03T20:55:22.305867+00:00",
+  "openai/openai-agents-python#5291": "2026-10-03T20:55:22.305867+00:00",
+  "openai/openai-agents-python#5290": "2026-10-03T20:55:22.305867+00:00",
+  "openai/openai-agents-python#5289": "2026-10-03T20:55:22.305867+00:00",
+  "modelcontextprotocol/python-sdk#3641": "2026-10-03T20:55:22.305867+00:00",
+  "modelcontextprotocol/python-sdk#3640": "2026-10-03T20:55:22.305867+00:00",
+  "pydantic/pydantic-ai#9751": "2026-10-03T20:55:22.305867+00:00",
+  "pydantic/pydantic-ai#9749": "2026-10-03T20:55:22.305867+00:00",
+  "pydantic/pydantic-ai#9747": "2026-10-03T20:55:22.305867+00:00",
+  "pydantic/pydantic-ai#9745": "2026-10-03T20:55:22.305867+00:00",
+  "pydantic/pydantic-ai#9744": "2026-10-03T20:55:22.305867+00:00",
+  "confident-ai/deepeval#3408": "2026-10-03T20:55:22.305867+00:00",
+  "milvus-io/pymilvus#3820": "2026-10-03T20:55:22.305867+00:00",
+  "docling-project/docling#4547": "2026-10-03T20:55:22.305867+00:00",
+  "docling-project/docling#4545": "2026-10-03T20:55:22.305867+00:00",
+  "docling-project/docling#4542": "2026-10-03T20:55:22.305867+00:00",
+  "docling-project/docling#4541": "2026-10-03T20:55:22.305867+00:00",
+  "gradio-app/gradio#13939": "2026-10-03T20:55:22.305867+00:00",
+  "home-assistant/core#184153": "2026-10-03T20:55:22.305867+00:00",
+  "home-assistant/core#184151": "2026-10-03T20:55:22.305867+00:00",
+  "home-assistant/core#184150": "2026-10-03T20:55:22.305867+00:00",
+  "sktime/sktime#11372": "2026-10-03T20:55:22.305867+00:00",
+  "apache/iceberg-python#4069": "2026-10-03T20:55:22.305867+00:00"
  },
  "prs": {
   "deepset-ai/haystack#13094": {
@@ -824,14 +865,6 @@
    "url": "https://github.com/567-labs/instructor/pull/2736",
    "title": "fix: replace deprecated gpt-3.5-turbo defaults with gpt-4.1-mini",
    "reviews": 0
-  },
-  "tobymao/sqlglot#8496": {
-   "comments": 0,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/tobymao/sqlglot/pull/8496",
-   "title": "fix(dialect): emit FROM UNNEST for FROM-less LATERAL VIEW EXPLODE (#8495)",
-   "reviews": 1
   },
   "DataDog/dd-trace-py#20769": {
    "comments": 0,
@@ -986,5 +1019,5 @@
    "reviews": 1
   }
  },
- "rot_index": 2
+ "rot_index": 0
 }
