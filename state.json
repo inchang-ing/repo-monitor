@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-03T01:51:02.594064+00:00",
+ "last_check": "2026-10-03T07:55:01.650356+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -695,9 +695,73 @@
   "python-attrs/attrs#1637": "2026-10-03T01:51:02.594064+00:00",
   "plotly/dash#4038": "2026-10-03T01:51:02.594064+00:00",
   "pydata/xarray#11662": "2026-10-03T01:51:02.594064+00:00",
-  "sympy/sympy#30652": "2026-10-03T01:51:02.594064+00:00"
+  "sympy/sympy#30652": "2026-10-03T01:51:02.594064+00:00",
+  "agno-agi/agno#10771": "2026-10-03T07:55:01.650356+00:00",
+  "agno-agi/agno#10768": "2026-10-03T07:55:01.650356+00:00",
+  "google/adk-python#7387": "2026-10-03T07:55:01.650356+00:00",
+  "microsoft/semantic-kernel#14531": "2026-10-03T07:55:01.650356+00:00",
+  "langchain-ai/langchain#41016": "2026-10-03T07:55:01.650356+00:00",
+  "langchain-ai/langgraph#9178": "2026-10-03T07:55:01.650356+00:00",
+  "langchain-ai/langgraph#9177": "2026-10-03T07:55:01.650356+00:00",
+  "langchain-ai/langgraph#9176": "2026-10-03T07:55:01.650356+00:00",
+  "langchain-ai/langgraph#9175": "2026-10-03T07:55:01.650356+00:00",
+  "langchain-ai/langgraph#9174": "2026-10-03T07:55:01.650356+00:00",
+  "modelscope/agentscope#3102": "2026-10-03T07:55:01.650356+00:00",
+  "modelscope/agentscope#3099": "2026-10-03T07:55:01.650356+00:00",
+  "bytedance/deer-flow#6213": "2026-10-03T07:55:01.650356+00:00",
+  "deepset-ai/haystack#13092": "2026-10-03T07:55:01.650356+00:00",
+  "mem0ai/mem0#7535": "2026-10-03T07:55:01.650356+00:00",
+  "jlowin/fastmcp#5396": "2026-10-03T07:55:01.650356+00:00",
+  "paul-gauthier/aider#5802": "2026-10-03T07:55:01.650356+00:00",
+  "all-hands-ai/openhands#17874": "2026-10-03T07:55:01.650356+00:00",
+  "modelcontextprotocol/python-sdk#3639": "2026-10-03T07:55:01.650356+00:00",
+  "modelcontextprotocol/python-sdk#3637": "2026-10-03T07:55:01.650356+00:00",
+  "pydantic/pydantic-ai#9726": "2026-10-03T07:55:01.650356+00:00",
+  "pydantic/pydantic-ai#9720": "2026-10-03T07:55:01.650356+00:00",
+  "berriai/litellm#44358": "2026-10-03T07:55:01.650356+00:00",
+  "berriai/litellm#44348": "2026-10-03T07:55:01.650356+00:00",
+  "berriai/litellm#44336": "2026-10-03T07:55:01.650356+00:00",
+  "googleapis/python-genai#3044": "2026-10-03T07:55:01.650356+00:00",
+  "eleutherai/lm-evaluation-harness#4305": "2026-10-03T07:55:01.650356+00:00",
+  "eleutherai/lm-evaluation-harness#4304": "2026-10-03T07:55:01.650356+00:00",
+  "docling-project/docling#4520": "2026-10-03T07:55:01.650356+00:00",
+  "docling-project/docling#4519": "2026-10-03T07:55:01.650356+00:00",
+  "docling-project/docling#4516": "2026-10-03T07:55:01.650356+00:00",
+  "embedchain/embedchain#7535": "2026-10-03T07:55:01.650356+00:00",
+  "psf/black#5474": "2026-10-03T07:55:01.650356+00:00",
+  "scikit-learn/scikit-learn#35070": "2026-10-03T07:55:01.650356+00:00",
+  "home-assistant/core#184112": "2026-10-03T07:55:01.650356+00:00",
+  "home-assistant/core#184111": "2026-10-03T07:55:01.650356+00:00",
+  "home-assistant/core#184109": "2026-10-03T07:55:01.650356+00:00",
+  "home-assistant/core#184108": "2026-10-03T07:55:01.650356+00:00",
+  "sktime/sktime#11366": "2026-10-03T07:55:01.650356+00:00",
+  "jupyter/notebook#8078": "2026-10-03T07:55:01.650356+00:00"
  },
  "prs": {
+  "567-labs/instructor#2736": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/567-labs/instructor/pull/2736",
+   "title": "fix: replace deprecated gpt-3.5-turbo defaults with gpt-4.1-mini",
+   "reviews": 0
+  },
+  "tobymao/sqlglot#8496": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/tobymao/sqlglot/pull/8496",
+   "title": "fix(dialect): emit FROM UNNEST for FROM-less LATERAL VIEW EXPLODE (#8495)",
+   "reviews": 1
+  },
+  "DataDog/dd-trace-py#20769": {
+   "comments": 0,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/DataDog/dd-trace-py/pull/20769",
+   "title": "fix(vllm): guard num_cached_tokens access for vLLM >= 0.20.0",
+   "reviews": 0
+  },
   "weaviate/weaviate-python-client#2180": {
    "comments": 1,
    "state": "open",
@@ -843,5 +907,5 @@
    "reviews": 1
   }
  },
- "rot_index": 2
+ "rot_index": 0
 }
