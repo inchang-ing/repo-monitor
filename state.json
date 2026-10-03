@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-03T07:55:01.650356+00:00",
+ "last_check": "2026-10-03T13:15:21.303380+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -735,9 +735,53 @@
   "home-assistant/core#184109": "2026-10-03T07:55:01.650356+00:00",
   "home-assistant/core#184108": "2026-10-03T07:55:01.650356+00:00",
   "sktime/sktime#11366": "2026-10-03T07:55:01.650356+00:00",
-  "jupyter/notebook#8078": "2026-10-03T07:55:01.650356+00:00"
+  "jupyter/notebook#8078": "2026-10-03T07:55:01.650356+00:00",
+  "agno-agi/agno#10777": "2026-10-03T13:15:21.303380+00:00",
+  "agno-agi/agno#10776": "2026-10-03T13:15:21.303380+00:00",
+  "crewaiinc/crewai#7865": "2026-10-03T13:15:21.303380+00:00",
+  "langflow-ai/langflow#15535": "2026-10-03T13:15:21.303380+00:00",
+  "langchain-ai/langchain#41021": "2026-10-03T13:15:21.303380+00:00",
+  "langchain-ai/langchain#41020": "2026-10-03T13:15:21.303380+00:00",
+  "bytedance/deer-flow#6233": "2026-10-03T13:15:21.303380+00:00",
+  "langroid/langroid#1171": "2026-10-03T13:15:21.303380+00:00",
+  "jlowin/fastmcp#5400": "2026-10-03T13:15:21.303380+00:00",
+  "jlowin/fastmcp#5399": "2026-10-03T13:15:21.303380+00:00",
+  "significant-gravitas/auto-gpt#15164": "2026-10-03T13:15:21.303380+00:00",
+  "huggingface/trl#7513": "2026-10-03T13:15:21.303380+00:00",
+  "huggingface/trl#7512": "2026-10-03T13:15:21.303380+00:00",
+  "huggingface/trl#7511": "2026-10-03T13:15:21.303380+00:00",
+  "huggingface/tokenizers#2488": "2026-10-03T13:15:21.303380+00:00",
+  "pydantic/pydantic-ai#9736": "2026-10-03T13:15:21.303380+00:00",
+  "pydantic/pydantic-ai#9734": "2026-10-03T13:15:21.303380+00:00",
+  "pydantic/pydantic-ai#9732": "2026-10-03T13:15:21.303380+00:00",
+  "huggingface/smolagents#2890": "2026-10-03T13:15:21.303380+00:00",
+  "huggingface/smolagents#2888": "2026-10-03T13:15:21.303380+00:00",
+  "berriai/litellm#44373": "2026-10-03T13:15:21.303380+00:00",
+  "docling-project/docling#4531": "2026-10-03T13:15:21.303380+00:00",
+  "docling-project/docling#4526": "2026-10-03T13:15:21.303380+00:00",
+  "chainlit/chainlit#3065": "2026-10-03T13:15:21.303380+00:00",
+  "pytest-dev/pytest#15124": "2026-10-03T13:15:21.303380+00:00",
+  "celery/celery#10775": "2026-10-03T13:15:21.303380+00:00",
+  "apache/airflow#74148": "2026-10-03T13:15:21.303380+00:00",
+  "mlflow/mlflow#26388": "2026-10-03T13:15:21.303380+00:00",
+  "mlflow/mlflow#26387": "2026-10-03T13:15:21.303380+00:00",
+  "apache/superset#44946": "2026-10-03T13:15:21.303380+00:00",
+  "apache/superset#44943": "2026-10-03T13:15:21.303380+00:00",
+  "apache/superset#44942": "2026-10-03T13:15:21.303380+00:00",
+  "delgan/loguru#1525": "2026-10-03T13:15:21.303380+00:00",
+  "duckdb/duckdb#26418": "2026-10-03T13:15:21.303380+00:00",
+  "locustio/locust#3529": "2026-10-03T13:15:21.303380+00:00",
+  "yt-dlp/yt-dlp#17767": "2026-10-03T13:15:21.303380+00:00"
  },
  "prs": {
+  "deepset-ai/haystack#13094": {
+   "comments": 3,
+   "state": "open",
+   "merged_at": null,
+   "url": "https://github.com/deepset-ai/haystack/pull/13094",
+   "title": "fix: preserve dict subclass types in _deepcopy_with_exceptions",
+   "reviews": 0
+  },
   "567-labs/instructor#2736": {
    "comments": 0,
    "state": "open",
@@ -771,7 +815,7 @@
    "reviews": 1
   },
   "pylint-dev/astroid#3334": {
-   "comments": 2,
+   "comments": 4,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/pylint-dev/astroid/pull/3334",
@@ -907,5 +951,5 @@
    "reviews": 1
   }
  },
- "rot_index": 0
+ "rot_index": 1
 }
