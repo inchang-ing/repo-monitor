@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-03T23:42:44.487447+00:00",
+ "last_check": "2026-10-04T05:31:59.070743+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -872,7 +872,39 @@
   "apache/airflow#74175": "2026-10-03T23:42:44.487447+00:00",
   "mlflow/mlflow#26397": "2026-10-03T23:42:44.487447+00:00",
   "duckdb/duckdb#26432": "2026-10-03T23:42:44.487447+00:00",
-  "yt-dlp/yt-dlp#17771": "2026-10-03T23:42:44.487447+00:00"
+  "yt-dlp/yt-dlp#17771": "2026-10-03T23:42:44.487447+00:00",
+  "langflow-ai/langflow#15542": "2026-10-04T05:31:59.070743+00:00",
+  "langchain-ai/langgraph#9185": "2026-10-04T05:31:59.070743+00:00",
+  "langchain-ai/langgraph#9184": "2026-10-04T05:31:59.070743+00:00",
+  "langchain-ai/langgraph#9183": "2026-10-04T05:31:59.070743+00:00",
+  "modelscope/agentscope#3118": "2026-10-04T05:31:59.070743+00:00",
+  "modelscope/agentscope#3115": "2026-10-04T05:31:59.070743+00:00",
+  "modelscope/agentscope#3114": "2026-10-04T05:31:59.070743+00:00",
+  "bytedance/deer-flow#6261": "2026-10-04T05:31:59.070743+00:00",
+  "bytedance/deer-flow#6259": "2026-10-04T05:31:59.070743+00:00",
+  "bytedance/deer-flow#6254": "2026-10-04T05:31:59.070743+00:00",
+  "upsonic/upsonic#630": "2026-10-04T05:31:59.070743+00:00",
+  "guidance-ai/guidance#1537": "2026-10-04T05:31:59.070743+00:00",
+  "guidance-ai/guidance#1535": "2026-10-04T05:31:59.070743+00:00",
+  "jlowin/fastmcp#5411": "2026-10-04T05:31:59.070743+00:00",
+  "paul-gauthier/aider#5806": "2026-10-04T05:31:59.070743+00:00",
+  "swe-agent/swe-agent#1582": "2026-10-04T05:31:59.070743+00:00",
+  "arize-ai/phoenix#16755": "2026-10-04T05:31:59.070743+00:00",
+  "arize-ai/phoenix#16754": "2026-10-04T05:31:59.070743+00:00",
+  "arize-ai/phoenix#16753": "2026-10-04T05:31:59.070743+00:00",
+  "huggingface/peft#3879": "2026-10-04T05:31:59.070743+00:00",
+  "huggingface/tokenizers#2490": "2026-10-04T05:31:59.070743+00:00",
+  "huggingface/tokenizers#2489": "2026-10-04T05:31:59.070743+00:00",
+  "pydantic/pydantic-ai#9762": "2026-10-04T05:31:59.070743+00:00",
+  "pydantic/pydantic-ai#9760": "2026-10-04T05:31:59.070743+00:00",
+  "pydantic/pydantic-ai#9759": "2026-10-04T05:31:59.070743+00:00",
+  "truera/trulens#2915": "2026-10-04T05:31:59.070743+00:00",
+  "truera/trulens#2913": "2026-10-04T05:31:59.070743+00:00",
+  "truera/trulens#2911": "2026-10-04T05:31:59.070743+00:00",
+  "truera/trulens#2908": "2026-10-04T05:31:59.070743+00:00",
+  "holoviz/holoviews#7100": "2026-10-04T05:31:59.070743+00:00",
+  "huggingface/transformers#49289": "2026-10-04T05:31:59.070743+00:00",
+  "huggingface/transformers#49288": "2026-10-04T05:31:59.070743+00:00"
  },
  "prs": {
   "deepset-ai/haystack#13094": {
@@ -905,7 +937,7 @@
    "merged_at": null,
    "url": "https://github.com/weaviate/weaviate-python-client/pull/2180",
    "title": "fix(batch): filter re-added errors by uuid and avoid the deprecated all_responses read",
-   "reviews": 1
+   "reviews": 2
   },
   "pylint-dev/astroid#3334": {
    "comments": 5,
@@ -1044,5 +1076,5 @@
    "reviews": 1
   }
  },
- "rot_index": 1
+ "rot_index": 2
 }
