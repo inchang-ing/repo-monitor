@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-04T20:03:24.424335+00:00",
+ "last_check": "2026-10-04T23:30:39.972449+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -1028,7 +1028,57 @@
   "pylint-dev/pylint#11575": "2026-10-04T20:03:24.424335+00:00",
   "great-expectations/great_expectations#12288": "2026-10-04T20:03:24.424335+00:00",
   "freqtrade/freqtrade#13635": "2026-10-04T20:03:24.424335+00:00",
-  "scikit-image/scikit-image#8348": "2026-10-04T20:03:24.424335+00:00"
+  "scikit-image/scikit-image#8348": "2026-10-04T20:03:24.424335+00:00",
+  "microsoft/semantic-kernel#14539": "2026-10-04T23:30:39.972449+00:00",
+  "microsoft/semantic-kernel#14538": "2026-10-04T23:30:39.972449+00:00",
+  "microsoft/semantic-kernel#14535": "2026-10-04T23:30:39.972449+00:00",
+  "microsoft/semantic-kernel#14534": "2026-10-04T23:30:39.972449+00:00",
+  "langchain-ai/langgraph#9202": "2026-10-04T23:30:39.972449+00:00",
+  "livekit/agents#7625": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#5004": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#5003": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#5002": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#5001": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#5000": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4999": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4998": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4997": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4996": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4995": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4994": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4993": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4992": "2026-10-04T23:30:39.972449+00:00",
+  "modelcontextprotocol/servers#4991": "2026-10-04T23:30:39.972449+00:00",
+  "paul-gauthier/aider#5808": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17909": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17908": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17907": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17906": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17905": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17904": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17903": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17902": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17901": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17900": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17899": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17898": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17897": "2026-10-04T23:30:39.972449+00:00",
+  "all-hands-ai/openhands#17896": "2026-10-04T23:30:39.972449+00:00",
+  "huggingface/trl#7520": "2026-10-04T23:30:39.972449+00:00",
+  "stanfordnlp/dspy#10571": "2026-10-04T23:30:39.972449+00:00",
+  "pydantic/pydantic-ai#9786": "2026-10-04T23:30:39.972449+00:00",
+  "pydantic/pydantic-ai#9781": "2026-10-04T23:30:39.972449+00:00",
+  "berriai/litellm#44531": "2026-10-04T23:30:39.972449+00:00",
+  "berriai/litellm#44527": "2026-10-04T23:30:39.972449+00:00",
+  "anthropics/anthropic-sdk-python#1970": "2026-10-04T23:30:39.972449+00:00",
+  "networkx/networkx#8945": "2026-10-04T23:30:39.972449+00:00",
+  "home-assistant/core#184267": "2026-10-04T23:30:39.972449+00:00",
+  "home-assistant/core#184261": "2026-10-04T23:30:39.972449+00:00",
+  "home-assistant/core#184260": "2026-10-04T23:30:39.972449+00:00",
+  "home-assistant/core#184259": "2026-10-04T23:30:39.972449+00:00",
+  "flet-dev/flet#6915": "2026-10-04T23:30:39.972449+00:00",
+  "dbt-labs/dbt-core#16593": "2026-10-04T23:30:39.972449+00:00",
+  "dbt-labs/dbt-core#16592": "2026-10-04T23:30:39.972449+00:00"
  },
  "prs": {
   "deepset-ai/haystack#13094": {
@@ -1062,14 +1112,6 @@
    "url": "https://github.com/weaviate/weaviate-python-client/pull/2180",
    "title": "fix(batch): filter re-added errors by uuid and avoid the deprecated all_responses read",
    "reviews": 2
-  },
-  "pylint-dev/astroid#3334": {
-   "comments": 7,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/pylint-dev/astroid/pull/3334",
-   "title": "Fix crash inferring membership test with out-of-range byte",
-   "reviews": 1
   },
   "snowflakedb/snowflake-connector-python#3046": {
    "comments": 0,
@@ -1200,5 +1242,5 @@
    "reviews": 1
   }
  },
- "rot_index": 2
+ "rot_index": 0
 }
