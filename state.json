@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-04T12:10:12.751116+00:00",
+ "last_check": "2026-10-04T16:58:00.774810+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -944,7 +944,63 @@
   "frappe/frappe#43795": "2026-10-04T12:10:12.751116+00:00",
   "sktime/sktime#11384": "2026-10-04T12:10:12.751116+00:00",
   "jupyter-server/jupyter_server#1707": "2026-10-04T12:10:12.751116+00:00",
-  "flet-dev/flet#6913": "2026-10-04T12:10:12.751116+00:00"
+  "flet-dev/flet#6913": "2026-10-04T12:10:12.751116+00:00",
+  "agno-agi/agno#10814": "2026-10-04T16:58:00.774810+00:00",
+  "agno-agi/agno#10813": "2026-10-04T16:58:00.774810+00:00",
+  "agno-agi/agno#10809": "2026-10-04T16:58:00.774810+00:00",
+  "agno-agi/agno#10807": "2026-10-04T16:58:00.774810+00:00",
+  "agno-agi/agno#10805": "2026-10-04T16:58:00.774810+00:00",
+  "crewaiinc/crewai#7881": "2026-10-04T16:58:00.774810+00:00",
+  "run-llama/llama_index#23359": "2026-10-04T16:58:00.774810+00:00",
+  "modelscope/agentscope#3125": "2026-10-04T16:58:00.774810+00:00",
+  "modelscope/agentscope#3124": "2026-10-04T16:58:00.774810+00:00",
+  "modelscope/agentscope#3123": "2026-10-04T16:58:00.774810+00:00",
+  "bytedance/deer-flow#6290": "2026-10-04T16:58:00.774810+00:00",
+  "bytedance/deer-flow#6288": "2026-10-04T16:58:00.774810+00:00",
+  "bytedance/deer-flow#6285": "2026-10-04T16:58:00.774810+00:00",
+  "assafelovic/gpt-researcher#2192": "2026-10-04T16:58:00.774810+00:00",
+  "instructor-ai/instructor#2742": "2026-10-04T16:58:00.774810+00:00",
+  "jlowin/fastmcp#5447": "2026-10-04T16:58:00.774810+00:00",
+  "jlowin/fastmcp#5442": "2026-10-04T16:58:00.774810+00:00",
+  "all-hands-ai/openhands#17887": "2026-10-04T16:58:00.774810+00:00",
+  "all-hands-ai/openhands#17886": "2026-10-04T16:58:00.774810+00:00",
+  "traceloop/openllmetry#4552": "2026-10-04T16:58:00.774810+00:00",
+  "traceloop/openllmetry#4551": "2026-10-04T16:58:00.774810+00:00",
+  "traceloop/openllmetry#4550": "2026-10-04T16:58:00.774810+00:00",
+  "huggingface/peft#3884": "2026-10-04T16:58:00.774810+00:00",
+  "openai/openai-agents-python#5293": "2026-10-04T16:58:00.774810+00:00",
+  "openai/openai-agents-python#5292": "2026-10-04T16:58:00.774810+00:00",
+  "pydantic/pydantic-ai#9770": "2026-10-04T16:58:00.774810+00:00",
+  "pydantic/pydantic-ai#9768": "2026-10-04T16:58:00.774810+00:00",
+  "pydantic/pydantic-ai#9767": "2026-10-04T16:58:00.774810+00:00",
+  "pydantic/pydantic-ai#9766": "2026-10-04T16:58:00.774810+00:00",
+  "pydantic/pydantic-ai#9765": "2026-10-04T16:58:00.774810+00:00",
+  "huggingface/smolagents#2894": "2026-10-04T16:58:00.774810+00:00",
+  "huggingface/smolagents#2893": "2026-10-04T16:58:00.774810+00:00",
+  "berriai/litellm#44510": "2026-10-04T16:58:00.774810+00:00",
+  "berriai/litellm#44509": "2026-10-04T16:58:00.774810+00:00",
+  "berriai/litellm#44504": "2026-10-04T16:58:00.774810+00:00",
+  "berriai/litellm#44503": "2026-10-04T16:58:00.774810+00:00",
+  "berriai/litellm#44500": "2026-10-04T16:58:00.774810+00:00",
+  "ukgovernmentbeis/inspect_ai#5681": "2026-10-04T16:58:00.774810+00:00",
+  "arize-ai/openinference#3930": "2026-10-04T16:58:00.774810+00:00",
+  "docling-project/docling#4566": "2026-10-04T16:58:00.774810+00:00",
+  "docling-project/docling#4565": "2026-10-04T16:58:00.774810+00:00",
+  "pipecat-ai/pipecat#6042": "2026-10-04T16:58:00.774810+00:00",
+  "pipecat-ai/pipecat#6041": "2026-10-04T16:58:00.774810+00:00",
+  "pipecat-ai/pipecat#6040": "2026-10-04T16:58:00.774810+00:00",
+  "chainlit/chainlit#3068": "2026-10-04T16:58:00.774810+00:00",
+  "python/mypy#22103": "2026-10-04T16:58:00.774810+00:00",
+  "sqlalchemy/alembic#1874": "2026-10-04T16:58:00.774810+00:00",
+  "apache/airflow#74196": "2026-10-04T16:58:00.774810+00:00",
+  "apache/airflow#74195": "2026-10-04T16:58:00.774810+00:00",
+  "apache/airflow#74194": "2026-10-04T16:58:00.774810+00:00",
+  "apache/airflow#74193": "2026-10-04T16:58:00.774810+00:00",
+  "mlflow/mlflow#26407": "2026-10-04T16:58:00.774810+00:00",
+  "twisted/twisted#12859": "2026-10-04T16:58:00.774810+00:00",
+  "duckdb/duckdb#26442": "2026-10-04T16:58:00.774810+00:00",
+  "duckdb/duckdb#26441": "2026-10-04T16:58:00.774810+00:00",
+  "yt-dlp/yt-dlp#17775": "2026-10-04T16:58:00.774810+00:00"
  },
  "prs": {
   "deepset-ai/haystack#13094": {
@@ -980,7 +1036,7 @@
    "reviews": 2
   },
   "pylint-dev/astroid#3334": {
-   "comments": 5,
+   "comments": 7,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/pylint-dev/astroid/pull/3334",
@@ -1020,7 +1076,7 @@
    "reviews": 1
   },
   "pydicom/pydicom#2385": {
-   "comments": 2,
+   "comments": 3,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/pydicom/pydicom/pull/2385",
@@ -1116,5 +1172,5 @@
    "reviews": 1
   }
  },
- "rot_index": 0
+ "rot_index": 1
 }
