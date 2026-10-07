@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-07T00:33:15.793295+00:00",
+ "last_check": "2026-10-07T07:04:54.737967+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -1576,7 +1576,58 @@
   "more-itertools/more-itertools#1308": "2026-10-07T00:33:15.793295+00:00",
   "pandas-dev/pandas#70748": "2026-10-07T00:33:15.793295+00:00",
   "pdm-project/pdm#3907": "2026-10-07T00:33:15.793295+00:00",
-  "huggingface/transformers#49379": "2026-10-07T00:33:15.793295+00:00"
+  "huggingface/transformers#49379": "2026-10-07T00:33:15.793295+00:00",
+  "google/adk-python#7432": "2026-10-07T07:04:54.737967+00:00",
+  "langflow-ai/langflow#15619": "2026-10-07T07:04:54.737967+00:00",
+  "langflow-ai/langflow#15617": "2026-10-07T07:04:54.737967+00:00",
+  "run-llama/llama_index#23411": "2026-10-07T07:04:54.737967+00:00",
+  "langchain-ai/langgraph#9225": "2026-10-07T07:04:54.737967+00:00",
+  "modelscope/agentscope#3157": "2026-10-07T07:04:54.737967+00:00",
+  "bytedance/deer-flow#6421": "2026-10-07T07:04:54.737967+00:00",
+  "bytedance/deer-flow#6414": "2026-10-07T07:04:54.737967+00:00",
+  "bytedance/deer-flow#6411": "2026-10-07T07:04:54.737967+00:00",
+  "deepset-ai/haystack#13145": "2026-10-07T07:04:54.737967+00:00",
+  "deepset-ai/haystack#13144": "2026-10-07T07:04:54.737967+00:00",
+  "lancedb/lancedb#4466": "2026-10-07T07:04:54.737967+00:00",
+  "swe-agent/swe-agent#1598": "2026-10-07T07:04:54.737967+00:00",
+  "all-hands-ai/openhands#18117": "2026-10-07T07:04:54.737967+00:00",
+  "all-hands-ai/openhands#18113": "2026-10-07T07:04:54.737967+00:00",
+  "all-hands-ai/openhands#18108": "2026-10-07T07:04:54.737967+00:00",
+  "all-hands-ai/openhands#18106": "2026-10-07T07:04:54.737967+00:00",
+  "all-hands-ai/openhands#18104": "2026-10-07T07:04:54.737967+00:00",
+  "all-hands-ai/openhands#18102": "2026-10-07T07:04:54.737967+00:00",
+  "arize-ai/phoenix#16821": "2026-10-07T07:04:54.737967+00:00",
+  "arize-ai/phoenix#16820": "2026-10-07T07:04:54.737967+00:00",
+  "arize-ai/phoenix#16819": "2026-10-07T07:04:54.737967+00:00",
+  "arize-ai/phoenix#16818": "2026-10-07T07:04:54.737967+00:00",
+  "huggingface/huggingface_hub#5100": "2026-10-07T07:04:54.737967+00:00",
+  "textualize/rich#4234": "2026-10-07T07:04:54.737967+00:00",
+  "openai/openai-agents-python#5327": "2026-10-07T07:04:54.737967+00:00",
+  "pydantic/pydantic-ai#9949": "2026-10-07T07:04:54.737967+00:00",
+  "pydantic/pydantic-ai#9947": "2026-10-07T07:04:54.737967+00:00",
+  "pydantic/pydantic-ai#9946": "2026-10-07T07:04:54.737967+00:00",
+  "pydantic/pydantic-ai#9945": "2026-10-07T07:04:54.737967+00:00",
+  "pydantic/pydantic-ai#9944": "2026-10-07T07:04:54.737967+00:00",
+  "pydantic/pydantic-ai#9942": "2026-10-07T07:04:54.737967+00:00",
+  "berriai/litellm#45001": "2026-10-07T07:04:54.737967+00:00",
+  "berriai/litellm#44996": "2026-10-07T07:04:54.737967+00:00",
+  "truera/trulens#2926": "2026-10-07T07:04:54.737967+00:00",
+  "truera/trulens#2925": "2026-10-07T07:04:54.737967+00:00",
+  "ukgovernmentbeis/inspect_ai#5733": "2026-10-07T07:04:54.737967+00:00",
+  "ukgovernmentbeis/inspect_ai#5732": "2026-10-07T07:04:54.737967+00:00",
+  "ukgovernmentbeis/inspect_ai#5731": "2026-10-07T07:04:54.737967+00:00",
+  "openai/evals#1846": "2026-10-07T07:04:54.737967+00:00",
+  "dagster-io/dagster#34266": "2026-10-07T07:04:54.737967+00:00",
+  "conda/conda#16816": "2026-10-07T07:04:54.737967+00:00",
+  "home-assistant/core#184639": "2026-10-07T07:04:54.737967+00:00",
+  "home-assistant/core#184600": "2026-10-07T07:04:54.737967+00:00",
+  "frappe/frappe#44065": "2026-10-07T07:04:54.737967+00:00",
+  "huggingface/datasets#8763": "2026-10-07T07:04:54.737967+00:00",
+  "dbt-labs/dbt-core#16640": "2026-10-07T07:04:54.737967+00:00",
+  "dbt-labs/dbt-core#16638": "2026-10-07T07:04:54.737967+00:00",
+  "dbt-labs/dbt-core#16637": "2026-10-07T07:04:54.737967+00:00",
+  "mahmoud/boltons#553": "2026-10-07T07:04:54.737967+00:00",
+  "mahmoud/boltons#551": "2026-10-07T07:04:54.737967+00:00"
  },
  "prs": {
   "deepset-ai/haystack#13094": {
@@ -1634,14 +1685,6 @@
    "url": "https://github.com/executablebooks/markdown-it-py/pull/443",
    "title": "fix(parser): fail fast on rules that don't advance state (infinite loop guard)",
    "reviews": 0
-  },
-  "docling-project/docling#4449": {
-   "comments": 5,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/docling-project/docling/pull/4449",
-   "title": "fix(models): defer the scipy import in the OCR base model",
-   "reviews": 1
   },
   "pydicom/pydicom#2385": {
    "comments": 4,
@@ -1740,5 +1783,5 @@
    "reviews": 1
   }
  },
- "rot_index": 2
+ "rot_index": 0
 }
