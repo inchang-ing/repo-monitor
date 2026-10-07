@@ -1,5 +1,5 @@
 {
- "last_check": "2026-10-06T20:53:12.571077+00:00",
+ "last_check": "2026-10-07T00:33:15.793295+00:00",
  "seen": {
   "modelscope/agentscope#3061": "2026-09-30T17:16:40.482719+00:00",
   "langfuse/langfuse#18100": "2026-09-30T17:16:40.482719+00:00",
@@ -1543,7 +1543,40 @@
   "holoviz/panel#8822": "2026-10-06T20:53:12.571077+00:00",
   "holoviz/panel#8820": "2026-10-06T20:53:12.571077+00:00",
   "duckdb/duckdb#26593": "2026-10-06T20:53:12.571077+00:00",
-  "reflex-dev/reflex#7459": "2026-10-06T20:53:12.571077+00:00"
+  "reflex-dev/reflex#7459": "2026-10-06T20:53:12.571077+00:00",
+  "browser-use/browser-use#6009": "2026-10-07T00:33:15.793295+00:00",
+  "microsoft/semantic-kernel#14561": "2026-10-07T00:33:15.793295+00:00",
+  "kyegomez/swarms#2492": "2026-10-07T00:33:15.793295+00:00",
+  "mem0ai/mem0#7559": "2026-10-07T00:33:15.793295+00:00",
+  "livekit/agents#7651": "2026-10-07T00:33:15.793295+00:00",
+  "modelcontextprotocol/servers#5059": "2026-10-07T00:33:15.793295+00:00",
+  "modelcontextprotocol/servers#5058": "2026-10-07T00:33:15.793295+00:00",
+  "all-hands-ai/openhands#18094": "2026-10-07T00:33:15.793295+00:00",
+  "all-hands-ai/openhands#18092": "2026-10-07T00:33:15.793295+00:00",
+  "all-hands-ai/openhands#18091": "2026-10-07T00:33:15.793295+00:00",
+  "all-hands-ai/openhands#18090": "2026-10-07T00:33:15.793295+00:00",
+  "all-hands-ai/openhands#18089": "2026-10-07T00:33:15.793295+00:00",
+  "all-hands-ai/openhands#18088": "2026-10-07T00:33:15.793295+00:00",
+  "all-hands-ai/openhands#18082": "2026-10-07T00:33:15.793295+00:00",
+  "all-hands-ai/openhands#18081": "2026-10-07T00:33:15.793295+00:00",
+  "traceloop/openllmetry#4577": "2026-10-07T00:33:15.793295+00:00",
+  "traceloop/openllmetry#4576": "2026-10-07T00:33:15.793295+00:00",
+  "arize-ai/phoenix#16812": "2026-10-07T00:33:15.793295+00:00",
+  "huggingface/trl#7548": "2026-10-07T00:33:15.793295+00:00",
+  "modelcontextprotocol/python-sdk#3651": "2026-10-07T00:33:15.793295+00:00",
+  "pydantic/pydantic-ai#9941": "2026-10-07T00:33:15.793295+00:00",
+  "pydantic/pydantic-ai#9939": "2026-10-07T00:33:15.793295+00:00",
+  "pydantic/pydantic-ai#9935": "2026-10-07T00:33:15.793295+00:00",
+  "anthropics/anthropic-sdk-python#1994": "2026-10-07T00:33:15.793295+00:00",
+  "arize-ai/openinference#3969": "2026-10-07T00:33:15.793295+00:00",
+  "arize-ai/openinference#3968": "2026-10-07T00:33:15.793295+00:00",
+  "arize-ai/openinference#3966": "2026-10-07T00:33:15.793295+00:00",
+  "docling-project/docling#4623": "2026-10-07T00:33:15.793295+00:00",
+  "embedchain/embedchain#7559": "2026-10-07T00:33:15.793295+00:00",
+  "more-itertools/more-itertools#1308": "2026-10-07T00:33:15.793295+00:00",
+  "pandas-dev/pandas#70748": "2026-10-07T00:33:15.793295+00:00",
+  "pdm-project/pdm#3907": "2026-10-07T00:33:15.793295+00:00",
+  "huggingface/transformers#49379": "2026-10-07T00:33:15.793295+00:00"
  },
  "prs": {
   "deepset-ai/haystack#13094": {
@@ -1707,5 +1740,5 @@
    "reviews": 1
   }
  },
- "rot_index": 1
+ "rot_index": 2
 }
