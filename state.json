@@ -1,55 +1,6 @@
 {
- "last_check": "2026-10-10T00:16:09.249390+00:00",
+ "last_check": "2026-10-10T06:17:47.178402+00:00",
  "seen": {
-  "langchain-ai/langchain#41010": "2026-10-03T01:51:02.594064+00:00",
-  "bytedance/deer-flow#6209": "2026-10-03T01:51:02.594064+00:00",
-  "livekit/agents#7592": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4405": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4404": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4403": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4402": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4401": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4400": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4399": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4398": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4397": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4396": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4395": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4394": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4393": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4392": "2026-10-03T01:51:02.594064+00:00",
-  "lancedb/lancedb#4391": "2026-10-03T01:51:02.594064+00:00",
-  "paul-gauthier/aider#5801": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16748": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16747": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16746": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16745": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16744": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16743": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16742": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16741": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16740": "2026-10-03T01:51:02.594064+00:00",
-  "arize-ai/phoenix#16739": "2026-10-03T01:51:02.594064+00:00",
-  "huggingface/peft#3876": "2026-10-03T01:51:02.594064+00:00",
-  "prompt-toolkit/python-prompt-toolkit#2115": "2026-10-03T01:51:02.594064+00:00",
-  "openai/openai-python#4021": "2026-10-03T01:51:02.594064+00:00",
-  "pydantic/pydantic-ai#9718": "2026-10-03T01:51:02.594064+00:00",
-  "pydantic/pydantic-ai#9717": "2026-10-03T01:51:02.594064+00:00",
-  "pydantic/pydantic-ai#9713": "2026-10-03T01:51:02.594064+00:00",
-  "pydantic/pydantic-ai#9706": "2026-10-03T01:51:02.594064+00:00",
-  "berriai/litellm#44300": "2026-10-03T01:51:02.594064+00:00",
-  "berriai/litellm#44298": "2026-10-03T01:51:02.594064+00:00",
-  "ukgovernmentbeis/inspect_ai#5666": "2026-10-03T01:51:02.594064+00:00",
-  "docling-project/docling#4515": "2026-10-03T01:51:02.594064+00:00",
-  "docling-project/docling#4514": "2026-10-03T01:51:02.594064+00:00",
-  "urllib3/urllib3#5300": "2026-10-03T01:51:02.594064+00:00",
-  "urllib3/urllib3#5299": "2026-10-03T01:51:02.594064+00:00",
-  "urllib3/urllib3#5298": "2026-10-03T01:51:02.594064+00:00",
-  "urllib3/urllib3#5297": "2026-10-03T01:51:02.594064+00:00",
-  "python-attrs/attrs#1637": "2026-10-03T01:51:02.594064+00:00",
-  "plotly/dash#4038": "2026-10-03T01:51:02.594064+00:00",
-  "pydata/xarray#11662": "2026-10-03T01:51:02.594064+00:00",
-  "sympy/sympy#30652": "2026-10-03T01:51:02.594064+00:00",
   "agno-agi/agno#10771": "2026-10-03T07:55:01.650356+00:00",
   "agno-agi/agno#10768": "2026-10-03T07:55:01.650356+00:00",
   "google/adk-python#7387": "2026-10-03T07:55:01.650356+00:00",
@@ -1665,7 +1616,71 @@
   "zauberzeug/nicegui#6387": "2026-10-10T00:16:09.249390+00:00",
   "ray-project/ray#66903": "2026-10-10T00:16:09.249390+00:00",
   "ray-project/ray#66901": "2026-10-10T00:16:09.249390+00:00",
-  "huggingface/transformers#49479": "2026-10-10T00:16:09.249390+00:00"
+  "huggingface/transformers#49479": "2026-10-10T00:16:09.249390+00:00",
+  "agno-agi/agno#10934": "2026-10-10T06:17:47.178402+00:00",
+  "agno-agi/agno#10933": "2026-10-10T06:17:47.178402+00:00",
+  "agno-agi/agno#10932": "2026-10-10T06:17:47.178402+00:00",
+  "agno-agi/agno#10931": "2026-10-10T06:17:47.178402+00:00",
+  "agno-agi/agno#10930": "2026-10-10T06:17:47.178402+00:00",
+  "crewaiinc/crewai#8022": "2026-10-10T06:17:47.178402+00:00",
+  "google/adk-python#7488": "2026-10-10T06:17:47.178402+00:00",
+  "run-llama/llama_index#23446": "2026-10-10T06:17:47.178402+00:00",
+  "run-llama/llama_index#23445": "2026-10-10T06:17:47.178402+00:00",
+  "run-llama/llama_index#23444": "2026-10-10T06:17:47.178402+00:00",
+  "langchain-ai/langchain#41190": "2026-10-10T06:17:47.178402+00:00",
+  "langchain-ai/langgraph#9270": "2026-10-10T06:17:47.178402+00:00",
+  "modelscope/agentscope#3215": "2026-10-10T06:17:47.178402+00:00",
+  "modelscope/agentscope#3212": "2026-10-10T06:17:47.178402+00:00",
+  "bytedance/deer-flow#6604": "2026-10-10T06:17:47.178402+00:00",
+  "bytedance/deer-flow#6602": "2026-10-10T06:17:47.178402+00:00",
+  "bytedance/deer-flow#6600": "2026-10-10T06:17:47.178402+00:00",
+  "bytedance/deer-flow#6599": "2026-10-10T06:17:47.178402+00:00",
+  "bytedance/deer-flow#6597": "2026-10-10T06:17:47.178402+00:00",
+  "bytedance/deer-flow#6594": "2026-10-10T06:17:47.178402+00:00",
+  "deepset-ai/haystack#13199": "2026-10-10T06:17:47.178402+00:00",
+  "mem0ai/mem0#7596": "2026-10-10T06:17:47.178402+00:00",
+  "modelcontextprotocol/servers#5091": "2026-10-10T06:17:47.178402+00:00",
+  "modelcontextprotocol/servers#5080": "2026-10-10T06:17:47.178402+00:00",
+  "chroma-core/chroma#7879": "2026-10-10T06:17:47.178402+00:00",
+  "lancedb/lancedb#4505": "2026-10-10T06:17:47.178402+00:00",
+  "paul-gauthier/aider#5831": "2026-10-10T06:17:47.178402+00:00",
+  "paul-gauthier/aider#5830": "2026-10-10T06:17:47.178402+00:00",
+  "traceloop/openllmetry#4591": "2026-10-10T06:17:47.178402+00:00",
+  "traceloop/openllmetry#4590": "2026-10-10T06:17:47.178402+00:00",
+  "huggingface/peft#3924": "2026-10-10T06:17:47.178402+00:00",
+  "openai/openai-agents-python#5341": "2026-10-10T06:17:47.178402+00:00",
+  "openai/openai-agents-python#5340": "2026-10-10T06:17:47.178402+00:00",
+  "openai/openai-agents-python#5339": "2026-10-10T06:17:47.178402+00:00",
+  "stanfordnlp/dspy#10609": "2026-10-10T06:17:47.178402+00:00",
+  "modelcontextprotocol/python-sdk#3669": "2026-10-10T06:17:47.178402+00:00",
+  "pydantic/pydantic-ai#10089": "2026-10-10T06:17:47.178402+00:00",
+  "pydantic/pydantic-ai#10088": "2026-10-10T06:17:47.178402+00:00",
+  "huggingface/smolagents#2938": "2026-10-10T06:17:47.178402+00:00",
+  "berriai/litellm#45736": "2026-10-10T06:17:47.178402+00:00",
+  "eleutherai/lm-evaluation-harness#4354": "2026-10-10T06:17:47.178402+00:00",
+  "eleutherai/lm-evaluation-harness#4353": "2026-10-10T06:17:47.178402+00:00",
+  "eleutherai/lm-evaluation-harness#4350": "2026-10-10T06:17:47.178402+00:00",
+  "arize-ai/openinference#4013": "2026-10-10T06:17:47.178402+00:00",
+  "arize-ai/openinference#4011": "2026-10-10T06:17:47.178402+00:00",
+  "arize-ai/openinference#4010": "2026-10-10T06:17:47.178402+00:00",
+  "qdrant/qdrant-client#1550": "2026-10-10T06:17:47.178402+00:00",
+  "unstructured-io/unstructured#4542": "2026-10-10T06:17:47.178402+00:00",
+  "docling-project/docling#4734": "2026-10-10T06:17:47.178402+00:00",
+  "embedchain/embedchain#7596": "2026-10-10T06:17:47.178402+00:00",
+  "gradio-app/gradio#13955": "2026-10-10T06:17:47.178402+00:00",
+  "gradio-app/gradio#13954": "2026-10-10T06:17:47.178402+00:00",
+  "gradio-app/gradio#13953": "2026-10-10T06:17:47.178402+00:00",
+  "gradio-app/gradio#13952": "2026-10-10T06:17:47.178402+00:00",
+  "scikit-learn/scikit-learn#35115": "2026-10-10T06:17:47.178402+00:00",
+  "bokeh/bokeh#15500": "2026-10-10T06:17:47.178402+00:00",
+  "bokeh/bokeh#15499": "2026-10-10T06:17:47.178402+00:00",
+  "home-assistant/core#185587": "2026-10-10T06:17:47.178402+00:00",
+  "home-assistant/core#185586": "2026-10-10T06:17:47.178402+00:00",
+  "home-assistant/core#185580": "2026-10-10T06:17:47.178402+00:00",
+  "frappe/frappe#44236": "2026-10-10T06:17:47.178402+00:00",
+  "frappe/frappe#44235": "2026-10-10T06:17:47.178402+00:00",
+  "plotly/plotly.py#5805": "2026-10-10T06:17:47.178402+00:00",
+  "dbt-labs/dbt-core#16689": "2026-10-10T06:17:47.178402+00:00"
  },
  "prs": {
   "repowise-dev/repowise#3188": {
@@ -1714,14 +1729,6 @@
    "merged_at": null,
    "url": "https://github.com/mala-project/mala/pull/682",
    "title": "Return a scalar float from Density.get_number_of_electrons",
-   "reviews": 0
-  },
-  "repowise-dev/repowise#3166": {
-   "comments": 1,
-   "state": "open",
-   "merged_at": null,
-   "url": "https://github.com/repowise-dev/repowise/pull/3166",
-   "title": "fix(mcp): don't create a stray .repowise/ when the store is missing",
    "reviews": 0
   },
   "crewAIInc/crewAI#7981": {
@@ -1821,7 +1828,7 @@
    "reviews": 0
   },
   "567-labs/instructor#2736": {
-   "comments": 0,
+   "comments": 1,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/567-labs/instructor/pull/2736",
@@ -1829,7 +1836,7 @@
    "reviews": 0
   },
   "DataDog/dd-trace-py#20769": {
-   "comments": 0,
+   "comments": 1,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/DataDog/dd-trace-py/pull/20769",
@@ -1837,7 +1844,7 @@
    "reviews": 0
   },
   "weaviate/weaviate-python-client#2180": {
-   "comments": 1,
+   "comments": 2,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/weaviate/weaviate-python-client/pull/2180",
@@ -1845,7 +1852,7 @@
    "reviews": 2
   },
   "snowflakedb/snowflake-connector-python#3046": {
-   "comments": 0,
+   "comments": 1,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/snowflakedb/snowflake-connector-python/pull/3046",
@@ -1853,7 +1860,7 @@
    "reviews": 0
   },
   "open-telemetry/opentelemetry-python#5717": {
-   "comments": 3,
+   "comments": 4,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/open-telemetry/opentelemetry-python/pull/5717",
@@ -1861,7 +1868,7 @@
    "reviews": 2
   },
   "executablebooks/markdown-it-py#443": {
-   "comments": 0,
+   "comments": 1,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/executablebooks/markdown-it-py/pull/443",
@@ -1869,7 +1876,7 @@
    "reviews": 0
   },
   "pydicom/pydicom#2385": {
-   "comments": 4,
+   "comments": 5,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/pydicom/pydicom/pull/2385",
@@ -1877,7 +1884,7 @@
    "reviews": 1
   },
   "docling-project/docling#4439": {
-   "comments": 4,
+   "comments": 5,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/docling-project/docling/pull/4439",
@@ -1885,7 +1892,7 @@
    "reviews": 1
   },
   "QwenLM/Qwen-Agent#986": {
-   "comments": 0,
+   "comments": 1,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/QwenLM/Qwen-Agent/pull/986",
@@ -1901,7 +1908,7 @@
    "reviews": 0
   },
   "yaml/pyyaml#967": {
-   "comments": 0,
+   "comments": 1,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/yaml/pyyaml/pull/967",
@@ -1909,7 +1916,7 @@
    "reviews": 0
   },
   "567-labs/instructor#2717": {
-   "comments": 0,
+   "comments": 1,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/567-labs/instructor/pull/2717",
@@ -1917,7 +1924,7 @@
    "reviews": 0
   },
   "bokeh/bokeh#15476": {
-   "comments": 4,
+   "comments": 5,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/bokeh/bokeh/pull/15476",
@@ -1925,7 +1932,7 @@
    "reviews": 2
   },
   "executablebooks/markdown-it-py#442": {
-   "comments": 0,
+   "comments": 1,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/executablebooks/markdown-it-py/pull/442",
@@ -1933,7 +1940,7 @@
    "reviews": 0
   },
   "pypa/setuptools#5337": {
-   "comments": 2,
+   "comments": 3,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/pypa/setuptools/pull/5337",
@@ -1941,7 +1948,7 @@
    "reviews": 1
   },
   "crewAIInc/crewAI#7795": {
-   "comments": 5,
+   "comments": 6,
    "state": "open",
    "merged_at": null,
    "url": "https://github.com/crewAIInc/crewAI/pull/7795",
@@ -1949,5 +1956,5 @@
    "reviews": 1
   }
  },
- "rot_index": 2
+ "rot_index": 0
 }
