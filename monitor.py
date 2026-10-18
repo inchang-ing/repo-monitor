@@ -11,7 +11,9 @@ silent baseline + an "online" card. Standard library only.
 """
 import json
 import os
+import tempfile
 import urllib.request
+from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -22,6 +24,52 @@ REPOS_FILE = Path("repos.txt")
 T3_SLICES = 3
 NOISE = ("ScreenContextAgent",)
 OWNER = "inchang-ing"
+
+
+@contextmanager
+def state_lock():
+    """Keep the whole read/poll/notify/write cycle exclusive across processes."""
+    with STATE_FILE.with_suffix(STATE_FILE.suffix + ".lock").open("a+b") as lock:
+        lock.seek(0, os.SEEK_END)
+        if not lock.tell():
+            lock.write(b"0")
+            lock.flush()
+        lock.seek(0)
+        if os.name == "nt":
+            import msvcrt
+            msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        try:
+            yield
+        finally:
+            if os.name == "nt":
+                lock.seek(0)
+                msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(lock, fcntl.LOCK_UN)
+
+
+def save_state(state):
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8",
+                                         dir=STATE_FILE.parent, prefix=".state-",
+                                         suffix=".tmp", delete=False) as stream:
+            temporary = Path(stream.name)
+            json.dump(state, stream, ensure_ascii=False, indent=1)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, STATE_FILE)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+def parse_time(value):
+    result = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return result.replace(tzinfo=timezone.utc) if result.tzinfo is None else result
 
 
 def http(method, url, payload=None, token=None, headers=None):
@@ -76,33 +124,56 @@ def load_tiers():
     return always, rotating
 
 
-def poll_issues(repos, gh_token, last_check, seen):
-    """Return newly created open issues since last_check, not yet notified."""
+def poll_issues(repos, gh_token, checked_at, fallback_since, seen, now):
+    """Only publish a repository's results after all required pages succeed."""
     fresh = []
+    successful = dict(checked_at)
     for repo in repos:
         try:
-            items = gh_get(f"/repos/{repo}/issues?state=open&sort=created"
-                           f"&direction=desc&per_page=15", gh_token)
+            last_check = parse_time(checked_at.get(repo, fallback_since)).replace(microsecond=0)
+            repo_fresh = []
+            page = 1
+            while True:
+                items = gh_get(f"/repos/{repo}/issues?state=open&sort=created"
+                               f"&direction=desc&per_page=100&page={page}", gh_token)
+                if not isinstance(items, list):
+                    raise ValueError("issues response is not a list")
+                reached_checkpoint = False
+                for it in items:
+                    created = parse_time(it["created_at"])
+                    if created < last_check:
+                        reached_checkpoint = True
+                        continue
+                    if "pull_request" in it:
+                        continue
+                    title = it.get("title", "")
+                    if any(n in title for n in NOISE):
+                        continue
+                    key = f"{repo}#{it['number']}"
+                    if key in seen:
+                        continue
+                    labels = ",".join(l["name"] for l in it.get("labels", []))
+                    repo_fresh.append({"repo": repo, "num": it["number"], "title": title,
+                                       "labels": labels,
+                                       "author": it.get("user", {}).get("login", "?"),
+                                       "url": it.get("html_url", ""), "key": key})
+                if reached_checkpoint or len(items) < 100:
+                    break
+                page += 1
         except Exception as e:
             print(f"WARN: {repo} issues poll failed: {e}")
             continue
-        for it in items:
-            if "pull_request" in it or "pull_request" in str(it.get("url", "")):
-                continue
-            created = datetime.fromisoformat(it["created_at"].replace("Z", "+00:00"))
-            if created <= last_check:
-                continue
-            title = it.get("title", "")
-            if any(n in title for n in NOISE):
-                continue
-            key = f"{repo}#{it['number']}"
-            if key in seen:
-                continue
-            labels = ",".join(l["name"] for l in it.get("labels", []))
-            fresh.append({"repo": repo, "num": it["number"], "title": title,
-                          "labels": labels, "author": it.get("user", {}).get("login", "?"),
-                          "url": it.get("html_url", ""), "key": key})
-    return fresh
+        fresh.extend(repo_fresh)
+        successful[repo] = now.replace(microsecond=0).isoformat()
+    return fresh, successful
+
+
+def pr_snapshot(item, old=None):
+    if item.get("state") not in ("open", "closed"):
+        raise ValueError("PR response has no valid state")
+    return {**(old or {}), "comments": item["comments"], "state": item["state"],
+            "merged_at": item.get("merged_at") or (item.get("pull_request") or {}).get("merged_at"),
+            "url": item["html_url"], "title": item["title"]}
 
 
 def poll_prs(gh_token, cached_prs):
@@ -110,19 +181,46 @@ def poll_prs(gh_token, cached_prs):
     events = []
     current = {}
     try:
-        r = gh_get(f"/search/issues?q=is:pr+author:{OWNER}+is:open&per_page=50", gh_token)
-        for it in r.get("items", []):
-            repo_full = "/".join(it["repository_url"].split("/")[-2:])
-            current[f"{repo_full}#{it['number']}"] = {
-                "comments": it.get("comments", 0),
-                "state": it.get("state"),
-                "merged_at": (it.get("pull_request") or {}).get("merged_at"),
-                "url": it.get("html_url", ""),
-                "title": it.get("title", ""),
-            }
+        page = 1
+        while True:
+            r = gh_get(f"/search/issues?q=is:pr+author:{OWNER}+is:open"
+                       f"&per_page=100&page={page}", gh_token)
+            if r.get("incomplete_results") or r.get("total_count", 0) > 1000:
+                raise ValueError("PR search is incomplete or exceeds the 1000-result limit")
+            items = r["items"]
+            if not isinstance(items, list):
+                raise ValueError("PR search items are not a list")
+            for it in items:
+                repo_full = "/".join(it["repository_url"].split("/")[-2:])
+                key = f"{repo_full}#{it['number']}"
+                current[key] = pr_snapshot(it, cached_prs.get(key))
+            if len(items) < 100:
+                if len(current) < r.get("total_count", 0):
+                    raise ValueError("PR search returned fewer results than expected")
+                break
+            page += 1
+            if page > 10:
+                if len(current) < r.get("total_count", 0):
+                    raise ValueError("PR search returned fewer results than expected")
+                break
     except Exception as e:
         print(f"WARN: pr search failed: {e}")
         return events, cached_prs
+
+    review_keys = set(current)
+    for key, old in cached_prs.items():
+        if key in current:
+            continue
+        current[key] = dict(old)
+        if old.get("state") != "open":
+            continue
+        repo_full, num = key.rsplit("#", 1)
+        try:
+            detail = gh_get(f"/repos/{repo_full}/pulls/{num}", gh_token)
+            current[key] = pr_snapshot(detail, old)
+            review_keys.add(key)
+        except Exception as e:
+            print(f"WARN: {key} detail poll failed: {e}")
 
     for key, cur in current.items():
         old = cached_prs.get(key)
@@ -138,17 +236,26 @@ def poll_prs(gh_token, cached_prs):
             events.append({"key": key, "kind": "comments",
                            "delta": cur["comments"] - old.get("comments", 0),
                            "title": cur["title"], "url": cur["url"]})
-    # reviews: one cheap call per PR (new reviews arrive as review objects)
-    for key, cur in current.items():
+    for key in sorted(review_keys):
+        cur = current[key]
         old = cached_prs.get(key)
         repo_full, num = key.rsplit("#", 1)
         try:
-            revs = gh_get(f"/repos/{repo_full}/pulls/{num}/reviews?per_page=100", gh_token)
-        except Exception:
+            n, page = 0, 1
+            while True:
+                revs = gh_get(f"/repos/{repo_full}/pulls/{num}/reviews"
+                              f"?per_page=100&page={page}", gh_token)
+                if not isinstance(revs, list):
+                    raise ValueError("reviews response is not a list")
+                n += len(revs)
+                if len(revs) < 100:
+                    break
+                page += 1
+        except Exception as e:
+            print(f"WARN: {key} reviews poll failed: {e}")
             continue
-        n = len(revs) if isinstance(revs, list) else 0
         cur["reviews"] = n
-        if old is not None and n > old.get("reviews", 0) and not any(
+        if old is not None and "reviews" in old and n > old["reviews"] and not any(
                 e["key"] == key and e["kind"] == "merged" for e in events):
             events.append({"key": key, "kind": "review", "delta": n - old.get("reviews", 0),
                            "title": cur["title"], "url": cur["url"]})
@@ -156,16 +263,25 @@ def poll_prs(gh_token, cached_prs):
 
 
 def main():
+    with state_lock():
+        run()
+
+
+def run():
     gh_token = os.environ["GITHUB_TOKEN"]
     cfg = {"app_id": os.environ["FEISHU_APP_ID"],
            "app_secret": os.environ["FEISHU_APP_SECRET"],
            "chat_id": os.environ["FEISHU_CHAT_ID"]}
-    state = json.loads(STATE_FILE.read_text()) if STATE_FILE.exists() else {}
+    state = json.loads(STATE_FILE.read_text(encoding="utf-8")) if STATE_FILE.exists() else {}
     init = not bool(state)
-    now = datetime.now(timezone.utc)
+    now = datetime.now(timezone.utc).replace(microsecond=0)
     last_raw = state.get("last_check")
-    last_check = (datetime.fromisoformat(last_raw) if last_raw
-                  else now - timedelta(minutes=15))
+    fallback_since = state.get("issue_backfill_since")
+    if fallback_since is None:
+        fallback = now if init else now - timedelta(days=7)
+        if last_raw:
+            fallback = min(fallback, parse_time(last_raw))
+        fallback_since = fallback.isoformat()
     seen = state.get("seen", {})
     cached_prs = state.get("prs", {})
 
@@ -174,7 +290,8 @@ def main():
     repos = always + rotating[rot::T3_SLICES]
     print(f"polling {len(repos)} repos (rot {rot}/{T3_SLICES}), init={init}")
 
-    new_issues = poll_issues(repos, gh_token, last_check, seen)
+    new_issues, checked_at = poll_issues(
+        repos, gh_token, state.get("issue_checked_at", {}), fallback_since, seen, now)
     pr_events, current_prs = poll_prs(gh_token, cached_prs)
 
     ftoken = feishu_token(cfg)
@@ -189,22 +306,23 @@ def main():
                   "事件将实时推送到本群:新 issue / PR 合并 / 新评审 / 新评论")
         print("baseline done")
     else:
-        if new_issues:
+        for start in range(0, len(new_issues), 12):
+            batch = new_issues[start:start + 12]
             lines = [f"- [{i['repo']}#{i['num']}]({i['url']}) {i['title'][:80]}"
                      f"{' `' + i['labels'] + '`' if i['labels'] else ''}"
-                     for i in new_issues[:12]]
-            more = f"\n- …及其他 {len(new_issues) - 12} 条" if len(new_issues) > 12 else ""
+                     for i in batch]
             send_card(ftoken, cfg["chat_id"],
-                      f"捕获 {len(new_issues)} 条新 issue",
-                      "\n".join(lines) + more)
+                      f"捕获 {len(batch)} 条新 issue",
+                      "\n".join(lines))
         for ev in pr_events:
-            kind = {"merged": ("🎉 PR 已合并", f"[{ev['key']}]({ev['url']}) {ev['title']}"),
-                    "closed": ("PR 被关闭", f"[{ev['key']}]({ev['url']}) {ev['title']}"),
-                    "review": (f"收到 {ev['delta']} 条新评审",
-                               f"[{ev['key']}]({ev['url']}) {ev['title']}"),
-                    "comments": (f"新增 {ev['delta']} 条评论",
-                                 f"[{ev['key']}]({ev['url']}) {ev['title']}")}[ev["kind"]]
-            send_card(ftoken, cfg["chat_id"], kind[0], kind[1])
+            if ev["kind"] == "review":
+                title = f"收到 {ev['delta']} 条新评审"
+            elif ev["kind"] == "comments":
+                title = f"新增 {ev['delta']} 条评论"
+            else:
+                title = {"merged": "🎉 PR 已合并", "closed": "PR 被关闭"}[ev["kind"]]
+            send_card(ftoken, cfg["chat_id"], title,
+                      f"[{ev['key']}]({ev['url']}) {ev['title']}")
         if not new_issues and not pr_events:
             print("no events")
 
@@ -213,8 +331,9 @@ def main():
     cutoff = (now - timedelta(days=7)).isoformat()
     seen = {k: v for k, v in seen.items() if v > cutoff}
     state.update(last_check=now.isoformat(), seen=seen,
-                 prs=current_prs, rot_index=(rot + 1) % T3_SLICES)
-    STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=1))
+                 prs=current_prs, rot_index=(rot + 1) % T3_SLICES,
+                 issue_checked_at=checked_at, issue_backfill_since=fallback_since)
+    save_state(state)
     print(f"state saved: {len(seen)} seen, {len(current_prs)} prs")
 
 
