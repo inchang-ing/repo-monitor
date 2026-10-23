@@ -25,6 +25,12 @@ search are checked individually for merge/closure. Failed queries retain the
 previous PR snapshot or review count; an unknown review count starts with a
 silent baseline when the query first succeeds. Closed PR snapshots are retained.
 
+If neither a repository issue scan nor the open-PR search completes successfully,
+the run exits with an error before contacting Feishu or saving state. GitHub Actions
+then reports a failed run; the previous cache, scan times, and rotation remain intact.
+A successful query with no results still counts as success. Partial failures retain
+their previous data while successful queries can still produce notifications.
+
 Issue cards contain at most 12 entries, with every batch sent before saving
 state. Any send failure leaves the previous state intact for retry. A retry may
 repeat cards already sent before a later failure, but does not silently consume

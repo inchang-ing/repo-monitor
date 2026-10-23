@@ -125,9 +125,10 @@ def load_tiers():
 
 
 def poll_issues(repos, gh_token, checked_at, fallback_since, seen, now):
-    """Only publish a repository's results after all required pages succeed."""
+    """Return new issues, watermarks, and whether any repository was fully scanned."""
     fresh = []
     successful = dict(checked_at)
+    any_success = False
     for repo in repos:
         try:
             last_check = parse_time(checked_at.get(repo, fallback_since)).replace(microsecond=0)
@@ -165,7 +166,8 @@ def poll_issues(repos, gh_token, checked_at, fallback_since, seen, now):
             continue
         fresh.extend(repo_fresh)
         successful[repo] = now.replace(microsecond=0).isoformat()
-    return fresh, successful
+        any_success = True
+    return fresh, successful, any_success
 
 
 def pr_snapshot(item, old=None):
@@ -177,7 +179,7 @@ def pr_snapshot(item, old=None):
 
 
 def poll_prs(gh_token, cached_prs):
-    """Return PR events (merged / closed / new comments / new reviews)."""
+    """Return PR events, snapshots, and whether the open-PR search completed."""
     events = []
     current = {}
     try:
@@ -205,7 +207,7 @@ def poll_prs(gh_token, cached_prs):
                 break
     except Exception as e:
         print(f"WARN: pr search failed: {e}")
-        return events, cached_prs
+        return events, cached_prs, False
 
     review_keys = set(current)
     for key, old in cached_prs.items():
@@ -259,7 +261,7 @@ def poll_prs(gh_token, cached_prs):
                 e["key"] == key and e["kind"] == "merged" for e in events):
             events.append({"key": key, "kind": "review", "delta": n - old.get("reviews", 0),
                            "title": cur["title"], "url": cur["url"]})
-    return events, current
+    return events, current, True
 
 
 def main():
@@ -290,9 +292,11 @@ def run():
     repos = always + rotating[rot::T3_SLICES]
     print(f"polling {len(repos)} repos (rot {rot}/{T3_SLICES}), init={init}")
 
-    new_issues, checked_at = poll_issues(
+    new_issues, checked_at, issues_ok = poll_issues(
         repos, gh_token, state.get("issue_checked_at", {}), fallback_since, seen, now)
-    pr_events, current_prs = poll_prs(gh_token, cached_prs)
+    pr_events, current_prs, prs_ok = poll_prs(gh_token, cached_prs)
+    if not issues_ok and not prs_ok:
+        raise RuntimeError("All GitHub polls failed; state preserved")
 
     ftoken = feishu_token(cfg)
 

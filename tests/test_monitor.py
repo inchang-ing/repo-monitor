@@ -62,13 +62,13 @@ class PollTests(unittest.TestCase):
                         return pr(state="closed", merged=merged)
                     return [None] * 4
                 with patch.object(monitor, "gh_get", side_effect=fake):
-                    events, current = monitor.poll_prs("token", self.old)
+                    events, current, _ = monitor.poll_prs("token", self.old)
                 self.assertEqual([e["kind"] for e in events], [kind])
                 self.assertEqual(current["a/b#1"]["state"], "closed")
 
     def test_failed_missing_pr_lookup_retains_snapshot(self):
         with patch.object(monitor, "gh_get", side_effect=[search([]), OSError("offline")]):
-            events, current = monitor.poll_prs("token", self.old)
+            events, current, _ = monitor.poll_prs("token", self.old)
         self.assertEqual(events, [])
         self.assertEqual(current, self.old)
 
@@ -82,7 +82,8 @@ class PollTests(unittest.TestCase):
                 return {**search(items), "items": items[(page - 1) * 100:page * 100]}
             return []
         with patch.object(monitor, "gh_get", side_effect=fake):
-            events, current = monitor.poll_prs("token", {})
+            events, current, search_ok = monitor.poll_prs("token", {})
+        self.assertTrue(search_ok)
         self.assertEqual(pages, [1, 2])
         self.assertEqual(len(current), 101)
         self.assertEqual(events, [])
@@ -94,14 +95,15 @@ class PollTests(unittest.TestCase):
                         [{"items": [], "total_count": 1001}]):
             with self.subTest(replies=replies):
                 with patch.object(monitor, "gh_get", side_effect=replies):
-                    events, current = monitor.poll_prs("token", self.old)
+                    events, current, search_ok = monitor.poll_prs("token", self.old)
+                self.assertFalse(search_ok)
                 self.assertEqual(events, [])
                 self.assertEqual(current, self.old)
 
     def test_reviews_paginate_and_notify_only_new_count(self):
         self.old["a/b#1"]["reviews"] = 100
         with patch.object(monitor, "gh_get", side_effect=[search([pr()]), [None] * 100, [None]]):
-            events, current = monitor.poll_prs("token", self.old)
+            events, current, _ = monitor.poll_prs("token", self.old)
         self.assertEqual(current["a/b#1"]["reviews"], 101)
         self.assertEqual([(e["kind"], e["delta"]) for e in events], [("review", 1)])
 
@@ -109,17 +111,17 @@ class PollTests(unittest.TestCase):
         for response in (OSError("page 2"), {"message": "bad response"}):
             with self.subTest(response=response):
                 with patch.object(monitor, "gh_get", side_effect=[search([pr()]), [None] * 100, response]):
-                    events, current = monitor.poll_prs("token", self.old)
+                    events, current, _ = monitor.poll_prs("token", self.old)
                 self.assertEqual(events, [])
                 self.assertEqual(current["a/b#1"]["reviews"], 4)
                 with patch.object(monitor, "gh_get", side_effect=[search([pr()]), [None] * 4]):
-                    events, current = monitor.poll_prs("token", current)
+                    events, current, _ = monitor.poll_prs("token", current)
                 self.assertEqual(events, [])
 
     def test_unknown_review_count_gets_silent_baseline(self):
         self.old["a/b#1"].pop("reviews")
         with patch.object(monitor, "gh_get", side_effect=[search([pr()]), [None] * 7]):
-            events, current = monitor.poll_prs("token", self.old)
+            events, current, _ = monitor.poll_prs("token", self.old)
         self.assertEqual(events, [])
         self.assertEqual(current["a/b#1"]["reviews"], 7)
 
@@ -127,7 +129,7 @@ class PollTests(unittest.TestCase):
         checks = {"a/b": EARLIER.isoformat(), "c/d": (NOW - timedelta(minutes=10)).isoformat()}
         middle = NOW - timedelta(minutes=30)
         with patch.object(monitor, "gh_get", return_value=[issue(1, middle)]):
-            fresh, successful = monitor.poll_issues(
+            fresh, successful, _ = monitor.poll_issues(
                 ["a/b", "c/d"], "token", checks, EARLIER.isoformat(), {}, NOW)
         self.assertEqual([i["key"] for i in fresh], ["a/b#1"])
         self.assertEqual(successful, {r: NOW.isoformat() for r in checks})
@@ -136,7 +138,7 @@ class PollTests(unittest.TestCase):
     def test_issue_pages_continue_until_checkpoint(self):
         recent = [issue(n) for n in range(100)]
         with patch.object(monitor, "gh_get", side_effect=[recent, [issue(100), issue(101, EARLIER - timedelta(seconds=1))]]) as get:
-            fresh, successful = monitor.poll_issues(
+            fresh, successful, _ = monitor.poll_issues(
                 ["a/b"], "token", {}, EARLIER.isoformat(), {"a/b#0": NOW.isoformat()}, NOW)
         self.assertEqual(len(fresh), 100)
         self.assertEqual(get.call_count, 2)
@@ -147,7 +149,7 @@ class PollTests(unittest.TestCase):
         checks = {"a/b": legacy_checkpoint.isoformat()}
         records = [issue(1, NOW), issue(2, NOW), issue(3, NOW - timedelta(seconds=1))]
         with patch.object(monitor, "gh_get", return_value=records):
-            fresh, successful = monitor.poll_issues(
+            fresh, successful, _ = monitor.poll_issues(
                 ["a/b"], "token", checks, EARLIER.isoformat(),
                 {"a/b#1": NOW.isoformat()}, NOW.replace(microsecond=900000))
         self.assertEqual([i["key"] for i in fresh], ["a/b#2"])
@@ -156,7 +158,7 @@ class PollTests(unittest.TestCase):
     def test_same_second_boundary_does_not_stop_issue_pagination(self):
         records = [issue(n, NOW) for n in range(101)]
         with patch.object(monitor, "gh_get", side_effect=[records[:100], records[100:]]) as get:
-            fresh, successful = monitor.poll_issues(
+            fresh, successful, _ = monitor.poll_issues(
                 ["a/b"], "token", {"a/b": NOW.isoformat()}, EARLIER.isoformat(), {}, NOW)
         self.assertEqual(len(fresh), 101)
         self.assertEqual(get.call_count, 2)
@@ -166,8 +168,9 @@ class PollTests(unittest.TestCase):
         checks = {"a/b": EARLIER.isoformat()}
         with patch.object(monitor, "gh_get", side_effect=[
                 [issue(n) for n in range(100)], OSError("page 2"), [issue(999)]]):
-            fresh, successful = monitor.poll_issues(
+            fresh, successful, issues_ok = monitor.poll_issues(
                 ["a/b", "c/d"], "token", checks, EARLIER.isoformat(), {}, NOW)
+        self.assertTrue(issues_ok)
         self.assertEqual([i["key"] for i in fresh], ["c/d#999"])
         self.assertEqual(successful["a/b"], EARLIER.isoformat())
         self.assertEqual(successful["c/d"], NOW.isoformat())
@@ -201,6 +204,67 @@ class MainTests(unittest.TestCase):
 
     def read_state(self):
         return json.loads(self.state_file.read_text(encoding="utf-8"))
+
+    def test_all_github_polls_failed_preserves_state_without_notifying(self):
+        self.initial.update(issue_checked_at={"a/b": EARLIER.isoformat()},
+                            prs={"a/b#1": {**monitor.pr_snapshot(pr()), "reviews": 4}})
+        self.state_file.write_text(json.dumps(self.initial), encoding="utf-8")
+        original = self.state_file.read_bytes()
+        with patch.object(monitor, "gh_get", side_effect=OSError("offline")), patch.object(
+                monitor, "feishu_token") as token, patch.object(monitor, "send_card") as send:
+            with self.assertRaisesRegex(RuntimeError, "All GitHub polls failed"):
+                monitor.main()
+        token.assert_not_called()
+        send.assert_not_called()
+        self.assertEqual(self.state_file.read_bytes(), original)
+
+    def test_first_install_does_not_announce_or_save_a_failed_baseline(self):
+        self.state_file.unlink()
+        with patch.object(monitor, "gh_get", side_effect=OSError("offline")), patch.object(
+                monitor, "feishu_token") as token, patch.object(monitor, "send_card") as send:
+            with self.assertRaisesRegex(RuntimeError, "All GitHub polls failed"):
+                monitor.main()
+        token.assert_not_called()
+        send.assert_not_called()
+        self.assertFalse(self.state_file.exists())
+
+    def test_successful_empty_poll_is_not_failure_even_with_unchanged_watermark(self):
+        for issues_ok, prs_ok in ((True, True), (True, False), (False, True)):
+            with self.subTest(issues_ok=issues_ok, prs_ok=prs_ok):
+                self.initial["issue_checked_at"] = {"a/b": NOW.isoformat()}
+                self.state_file.write_text(json.dumps(self.initial), encoding="utf-8")
+                def fake(path, token):
+                    if path.startswith("/search/"):
+                        if prs_ok:
+                            return search([])
+                    elif issues_ok:
+                        return []
+                    raise OSError("offline")
+                with patch.object(monitor, "gh_get", side_effect=fake), patch.object(
+                        monitor, "send_card") as send:
+                    monitor.main()
+                send.assert_not_called()
+                self.assertEqual(self.read_state()["last_check"], NOW.isoformat())
+                self.assertEqual(self.read_state()["issue_checked_at"], {"a/b": NOW.isoformat()})
+
+    def test_partial_failure_still_notifies_and_saves_successful_repository(self):
+        self.initial.update(issue_checked_at={"a/b": EARLIER.isoformat()},
+                            prs={"a/b#1": {**monitor.pr_snapshot(pr()), "reviews": 4}})
+        self.state_file.write_text(json.dumps(self.initial), encoding="utf-8")
+        def fake(path, token):
+            if path.startswith("/repos/c/d/issues?"):
+                return [issue(2)]
+            raise OSError("offline")
+        with patch.object(monitor, "load_tiers", return_value=(["a/b", "c/d"], [])), patch.object(
+                monitor, "gh_get", side_effect=fake), patch.object(monitor, "send_card") as send:
+            monitor.main()
+        send.assert_called_once()
+        self.assertIn("c/d#2", send.call_args.args[3])
+        state = self.read_state()
+        self.assertEqual(state["issue_checked_at"],
+                         {"a/b": EARLIER.isoformat(), "c/d": NOW.isoformat()})
+        self.assertEqual(state["prs"], self.initial["prs"])
+        self.assertIn("c/d#2", state["seen"])
 
     def test_issue_notifications_include_every_item_in_batches(self):
         with patch.object(monitor, "gh_get", side_effect=self.api(25)), patch.object(monitor, "send_card") as send:
@@ -249,7 +313,7 @@ class MainTests(unittest.TestCase):
     def test_merged_notification_does_not_require_delta(self):
         event = {"key": "a/b#1", "kind": "merged", "title": "fixed", "url": "https://example.com"}
         with patch.object(monitor, "gh_get", side_effect=self.api(0)), patch.object(
-                monitor, "poll_prs", return_value=([event], {})), patch.object(monitor, "send_card") as send:
+                monitor, "poll_prs", return_value=([event], {}, True)), patch.object(monitor, "send_card") as send:
             monitor.main()
         self.assertEqual(send.call_count, 1)
         self.assertEqual(send.call_args.args[2], "🎉 PR 已合并")
