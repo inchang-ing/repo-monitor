@@ -7,7 +7,11 @@ A scheduled GitHub Action polls ~390 watched repos for newly created issues
 and this account's open PRs for state changes, then pushes events as cards
 to a Feishu group via the Feishu Open API. No third-party dependencies.
 
-- `repos.txt` — watched repos (`owner/repo` = every run, `R owner/repo` = rotating 1/3 slice)
+The polling schedule is defined only in [the workflow](.github/workflows/monitor.yml).
+Change it there when needed. Rotating repos are split into `T3_SLICES` groups
+in `monitor.py`; one group is scanned per run, so a full cycle takes that many runs.
+
+- `repos.txt` — watched repos (`owner/repo` = every run, `R owner/repo` = rotating slice)
 - `monitor.py` — the poller (stdlib only)
 - `state.json` — committed back each run (seen issues, PR cache, rotation index,
   successful scan time for each repository)

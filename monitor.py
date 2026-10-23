@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """GitHub → Feishu watcher.
 
-Runs on GitHub Actions every 10 minutes. Polls:
+Runs on the schedule configured in .github/workflows/monitor.yml. Polls:
   1. watched repos for NEWLY CREATED open issues (tiered, rotating slice),
   2. our open PRs for state changes (merged / new comments / new reviews),
 and pushes events as cards to a Feishu group via the Feishu Open API.
@@ -306,8 +306,8 @@ def run():
         for it in new_issues[:5]:
             print(f"baseline issue: {it['key']} {it['title'][:60]}")
         send_card(ftoken, cfg["chat_id"], "GitHub 监测已上线",
-                  f"轮询 {len(repos)} 仓(每 10 分钟)· 监测 {len(current_prs)} 个在飞 PR\n"
-                  "事件将实时推送到本群:新 issue / PR 合并 / 新评审 / 新评论")
+                  f"本轮扫描 {len(repos)} 仓 · 监测 {len(current_prs)} 个在飞 PR\n"
+                  "按工作流配置定时运行，发现事件后推送到本群:新 issue / PR 合并 / 新评审 / 新评论")
         print("baseline done")
     else:
         for start in range(0, len(new_issues), 12):
