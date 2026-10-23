@@ -35,6 +35,11 @@ then reports a failed run; the previous cache, scan times, and rotation remain i
 A successful query with no results still counts as success. Partial failures retain
 their previous data while successful queries can still produce notifications.
 
+After initialization, a successful round with no events saves scan progress without
+requesting a Feishu token. Feishu credentials and authentication are needed only
+when sending the initial online card or event notifications; authentication failures
+then preserve the previous state for retry.
+
 Issue cards contain at most 12 entries, with every batch sent before saving
 state. Any send failure leaves the previous state intact for retry. A retry may
 repeat cards already sent before a later failure, but does not silently consume

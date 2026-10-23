@@ -271,9 +271,6 @@ def main():
 
 def run():
     gh_token = os.environ["GITHUB_TOKEN"]
-    cfg = {"app_id": os.environ["FEISHU_APP_ID"],
-           "app_secret": os.environ["FEISHU_APP_SECRET"],
-           "chat_id": os.environ["FEISHU_CHAT_ID"]}
     state = json.loads(STATE_FILE.read_text(encoding="utf-8")) if STATE_FILE.exists() else {}
     init = not bool(state)
     now = datetime.now(timezone.utc).replace(microsecond=0)
@@ -298,7 +295,11 @@ def run():
     if not issues_ok and not prs_ok:
         raise RuntimeError("All GitHub polls failed; state preserved")
 
-    ftoken = feishu_token(cfg)
+    if init or new_issues or pr_events:
+        cfg = {"app_id": os.environ["FEISHU_APP_ID"],
+               "app_secret": os.environ["FEISHU_APP_SECRET"],
+               "chat_id": os.environ["FEISHU_CHAT_ID"]}
+        ftoken = feishu_token(cfg)
 
     if init:
         for it in new_issues:

@@ -266,6 +266,33 @@ class MainTests(unittest.TestCase):
         self.assertEqual(state["prs"], self.initial["prs"])
         self.assertIn("c/d#2", state["seen"])
 
+    def test_quiet_round_saves_progress_without_feishu_credentials_or_service(self):
+        with patch.dict(os.environ, {"GITHUB_TOKEN": "fake"}, clear=True), \
+             patch.object(monitor, "gh_get", side_effect=self.api(0)), \
+             patch.object(monitor, "feishu_token", side_effect=RuntimeError("offline")) as token, \
+             patch.object(monitor, "send_card") as send:
+            monitor.main()
+        token.assert_not_called()
+        send.assert_not_called()
+        self.assertEqual(self.read_state()["issue_checked_at"]["a/b"], NOW.isoformat())
+        self.assertEqual(self.read_state()["rot_index"], 1)
+
+    def test_required_notification_auth_failure_preserves_state(self):
+        for first_install in (False, True):
+            with self.subTest(first_install=first_install):
+                if first_install:
+                    self.state_file.unlink()
+                with patch.object(monitor, "gh_get", side_effect=self.api(1)), \
+                     patch.object(monitor, "feishu_token", side_effect=RuntimeError("offline")), \
+                     patch.object(monitor, "send_card") as send:
+                    with self.assertRaisesRegex(RuntimeError, "offline"):
+                        monitor.main()
+                send.assert_not_called()
+                if first_install:
+                    self.assertFalse(self.state_file.exists())
+                else:
+                    self.assertEqual(self.read_state(), self.initial)
+
     def test_issue_notifications_include_every_item_in_batches(self):
         with patch.object(monitor, "gh_get", side_effect=self.api(25)), patch.object(monitor, "send_card") as send:
             monitor.main()
