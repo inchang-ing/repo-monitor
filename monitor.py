@@ -120,7 +120,10 @@ def gh_update_digest_issue(token, events):
              for ev in events[:DIGEST_ISSUE_LINES]]
     if len(events) > DIGEST_ISSUE_LINES:
         lines.append(f"- … and {len(events) - DIGEST_ISSUE_LINES} more in undelivered.jsonl")
-    body = ("Events the Feishu channel could not deliver this round:\n\n"
+    body = ("Events the Feishu channel could not deliver this round.\n\n"
+            "Note: each entry is timestamped when it was captured — an event may "
+            "already have been handled since. Always re-check the PR's current "
+            "reviews/comments before acting on an entry.\n\n"
             + "\n".join(lines))
     if number is None:
         r = http("POST", API + f"/repos/{repo}/issues",
