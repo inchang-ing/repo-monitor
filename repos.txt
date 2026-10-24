@@ -199,7 +199,7 @@ R pytest-dev/pytest-asyncio
 R aio-libs/aiosignal
 R aio-libs/aiohttp-cors
 R aio-libs/janus
-R aio-libs/aiosqlite
+R omnilib/aiosqlite
 R aio-libs/aiomysql
 R aio-libs/aioredis-py
 R hypothesisworks/hypothesis
@@ -331,7 +331,7 @@ R nedbat/coveragepy
 R behave/behave
 R locustio/locust
 R pytest-dev/pytest-timeout
-R pytest-dev/pytest-benchmark
+R ionelmc/pytest-benchmark
 R pytest-dev/pytest-rerunfailures
 R pypa/wheel
 R python-lsp/python-lsp-server
@@ -355,13 +355,12 @@ R jaraco/jaraco.text
 R jaraco/jaraco.classes
 R jaraco/jaraco.logging
 R jaraco/jaraco.itertools
-R jaraco/backports
 R jaraco/keyring
 R jaraco/zipp
 R jaraco/tempora
 R jaraco/portend
 R psf/pycodestyle
-R psf/pyflakes
+R PyCQA/pyflakes
 R psf/requests-html
 R psf/cachecontrol
 R pypa/distutils
