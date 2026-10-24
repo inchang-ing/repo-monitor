@@ -44,11 +44,16 @@ authentication or send failure never fails the round. Scan progress is saved
 either way, so watermarks and the rotation keep advancing, and the round's
 events are appended to `undelivered.jsonl` (kept at the 200 most recent lines,
 committed together with `state.json`) instead of being dropped or retried by
-crashing runs. A permanently blocked channel therefore shows green runs and a
-readable digest rather than an endless red retry loop; the digest is the record
-to consult (or re-push manually) once the channel is fixed. A fresh installation
-starts with a silent baseline and an online card; that start time also applies
-to rotation slices first scanned later.
+crashing runs. As a second fallback that does not require anyone to watch a
+file, rounds with undelivered events also comment them on (or open) a
+`monitor-digest` labeled issue in this repository while it runs inside GitHub
+Actions — GitHub emails the account owner about its own issues, so a blocked
+Feishu channel still surfaces within a round. The digest issue is closed
+automatically once a round delivers notifications again. A permanently blocked
+channel therefore shows green runs, a readable digest, and an open tracking
+issue instead of an endless red retry loop. A fresh installation starts with a
+silent baseline and an online card; that start time also applies to rotation
+slices first scanned later.
 
 State writes use an atomic replacement. A process lock held for the entire run
 prevents overlapping local runs that share `state.json`; the persistent

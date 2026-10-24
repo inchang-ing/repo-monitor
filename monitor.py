@@ -28,6 +28,9 @@ STATE_FILE = Path("state.json")
 REPOS_FILE = Path("repos.txt")
 UNDELIVERED_FILE = Path("undelivered.jsonl")
 UNDELIVERED_LIMIT = 200
+DIGEST_LABEL = "monitor-digest"
+DIGEST_TITLE = "Monitoring digest: notification channel unavailable"
+DIGEST_ISSUE_LINES = 30
 T3_SLICES = 3
 NOISE = ("ScreenContextAgent",)
 OWNER = "inchang-ing"
@@ -88,6 +91,54 @@ def record_undelivered(events, now):
              for ev in events]
     UNDELIVERED_FILE.write_text("\n".join((old + lines)[-UNDELIVERED_LIMIT:]) + "\n",
                                 encoding="utf-8")
+
+
+def gh_digest_issue(token):
+    """Return (number, repo) of the open digest issue, or (None, repo/None).
+
+    GitHub emails the account owner about its own repository's issues, so an
+    open issue is the fallback channel that works while Feishu is blocked.
+    Runs only inside GitHub Actions (GITHUB_REPOSITORY is set there).
+    """
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not repo:
+        return None, None
+    issues = http("GET", API + f"/repos/{repo}/issues?state=open&labels={DIGEST_LABEL}",
+                  token=token)
+    for it in issues:
+        if "pull_request" not in it:
+            return it["number"], repo
+    return None, repo
+
+
+def gh_update_digest_issue(token, events):
+    """Comment the round's undelivered events on the digest issue, opening it if needed."""
+    number, repo = gh_digest_issue(token)
+    if repo is None:
+        return
+    lines = [f"- [{ev.get('key', '?')}]({ev.get('url', '')}) {ev.get('title', '')}"[:200]
+             for ev in events[:DIGEST_ISSUE_LINES]]
+    if len(events) > DIGEST_ISSUE_LINES:
+        lines.append(f"- … and {len(events) - DIGEST_ISSUE_LINES} more in undelivered.jsonl")
+    body = ("Events the Feishu channel could not deliver this round:\n\n"
+            + "\n".join(lines))
+    if number is None:
+        r = http("POST", API + f"/repos/{repo}/issues",
+                 {"title": DIGEST_TITLE, "body": body, "labels": [DIGEST_LABEL]}, token=token)
+        print(f"digest issue #{r.get('number')} opened")
+    else:
+        http("POST", API + f"/repos/{repo}/issues/{number}/comments",
+             {"body": body}, token=token)
+        print(f"digest issue #{number} updated")
+
+
+def gh_close_digest_issue(token):
+    """Close the digest issue once the notification channel works again."""
+    number, repo = gh_digest_issue(token)
+    if repo is None or number is None:
+        return
+    http("PATCH", API + f"/repos/{repo}/issues/{number}", {"state": "closed"}, token=token)
+    print(f"digest issue #{number} closed (channel recovered)")
 
 
 def http(method, url, payload=None, token=None, headers=None):
@@ -364,6 +415,15 @@ def run():
             record_undelivered(pending, now)
     else:
         print("no events")
+
+    if not init:
+        try:
+            if not delivered:
+                gh_update_digest_issue(gh_token, pending)
+            else:
+                gh_close_digest_issue(gh_token)
+        except Exception as exc:
+            print(f"WARN: digest issue update failed (ignored): {exc}")
 
     for it in new_issues:
         seen[it["key"]] = now.isoformat()

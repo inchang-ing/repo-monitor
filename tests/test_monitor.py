@@ -192,7 +192,8 @@ class MainTests(unittest.TestCase):
             patch.object(monitor, "load_tiers", return_value=(["a/b"], [])),
             patch.object(monitor, "feishu_token", return_value="fake"),
             patch.dict(os.environ, GITHUB_TOKEN="fake", FEISHU_APP_ID="fake",
-                       FEISHU_APP_SECRET="fake", FEISHU_CHAT_ID="fake"),
+                       FEISHU_APP_SECRET="fake", FEISHU_CHAT_ID="fake",
+                       GITHUB_REPOSITORY=""),
         ):
             mocked.start()
             self.addCleanup(mocked.stop)
@@ -339,13 +340,69 @@ class MainTests(unittest.TestCase):
             encoding="utf-8")
         events = [{"key": "a/b#1", "kind": "merged", "title": "t", "url": "u"}]
         with patch.object(monitor, "gh_get", side_effect=self.api(0)), patch.object(
-                monitor, "poll_prs", return_value=(events, {}, True)), patch.object(
+                monitor, "poll_prs", return_value=([events[0]], {}, True)), patch.object(
                 monitor, "feishu_token", side_effect=RuntimeError("offline")):
             monitor.main()
         lines = self.undelivered.read_text(encoding="utf-8").splitlines()
         self.assertEqual(len(lines), monitor.UNDELIVERED_LIMIT)
         self.assertEqual(json.loads(lines[0])["key"], "old1")
         self.assertEqual(json.loads(lines[-1])["key"], "a/b#1")
+
+    def digest_http(self, open_issues, calls):
+        def fake(method, url, payload=None, token=None, headers=None):
+            calls.append((method, url, payload))
+            if "/issues?" in url:  # digest issue search
+                return open_issues
+            if url.endswith("/issues"):
+                return {"number": 9}
+            return {}
+        return fake
+
+    def test_digest_issue_opened_when_channel_down(self):
+        calls = []
+        with patch.dict(os.environ, GITHUB_REPOSITORY="own/repo"), \
+             patch.object(monitor, "http", side_effect=self.digest_http([], calls)), \
+             patch.object(monitor, "gh_get", side_effect=self.api(1)), \
+             patch.object(monitor, "feishu_token", side_effect=RuntimeError("offline")):
+            monitor.main()
+        posts = [(m, u, p) for m, u, p in calls if m == "POST" and u.endswith("/issues")]
+        self.assertEqual(len(posts), 1)
+        self.assertEqual(posts[0][2]["labels"], [monitor.DIGEST_LABEL])
+        self.assertIn("a/b#0", posts[0][2]["body"])
+        self.assertIn("a/b#0", self.read_state()["seen"])
+
+    def test_digest_issue_commented_when_already_open(self):
+        calls = []
+        with patch.dict(os.environ, GITHUB_REPOSITORY="own/repo"), \
+             patch.object(monitor, "http", side_effect=self.digest_http(
+                 [{"number": 7, "title": monitor.DIGEST_TITLE}], calls)), \
+             patch.object(monitor, "gh_get", side_effect=self.api(1)), \
+             patch.object(monitor, "feishu_token", side_effect=RuntimeError("offline")):
+            monitor.main()
+        comments = [(m, u, p) for m, u, p in calls if m == "POST" and u.endswith("/comments")]
+        self.assertEqual(len(comments), 1)
+        self.assertIn("/issues/7/comments", comments[0][1])
+        self.assertFalse(any(m == "POST" and u.endswith("/issues") for m, u, _ in calls))
+
+    def test_digest_issue_closed_when_channel_recovers(self):
+        calls = []
+        with patch.dict(os.environ, GITHUB_REPOSITORY="own/repo"), \
+             patch.object(monitor, "http", side_effect=self.digest_http(
+                 [{"number": 7, "title": monitor.DIGEST_TITLE}], calls)), \
+             patch.object(monitor, "gh_get", side_effect=self.api(0)):
+            monitor.main()  # quiet round, notification channel healthy
+        patches = [(m, u, p) for m, u, p in calls if m == "PATCH"]
+        self.assertEqual(patches, [("PATCH", "https://api.github.com/repos/own/repo/issues/7",
+                                    {"state": "closed"})])
+
+    def test_digest_issue_api_failure_does_not_fail_round(self):
+        with patch.dict(os.environ, GITHUB_REPOSITORY="own/repo"), \
+             patch.object(monitor, "http", side_effect=OSError("issues api down")), \
+             patch.object(monitor, "gh_get", side_effect=self.api(1)), \
+             patch.object(monitor, "feishu_token", side_effect=RuntimeError("offline")):
+            monitor.main()
+        self.assertEqual(self.read_state()["last_check"], NOW.isoformat())
+        self.assertIn("a/b#0", self.read_state()["seen"])
 
     def test_legacy_state_gets_fixed_lookback_for_unscanned_repos(self):
         with patch.object(monitor, "gh_get", side_effect=self.api(0)), patch.object(monitor, "send_card"):
