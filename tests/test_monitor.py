@@ -181,10 +181,12 @@ class MainTests(unittest.TestCase):
         directory = tempfile.TemporaryDirectory()
         self.addCleanup(directory.cleanup)
         self.state_file = Path(directory.name) / "state.json"
+        self.undelivered = Path(directory.name) / "undelivered.jsonl"
         self.initial = {"last_check": EARLIER.isoformat(), "seen": {}, "prs": {}, "rot_index": 0}
         self.state_file.write_text(json.dumps(self.initial), encoding="utf-8")
         for mocked in (
             patch.object(monitor, "STATE_FILE", self.state_file),
+            patch.object(monitor, "UNDELIVERED_FILE", self.undelivered),
             patch.object(monitor, "datetime", FixedDatetime),
             patch.object(monitor, "http", side_effect=AssertionError("real HTTP prohibited")),
             patch.object(monitor, "load_tiers", return_value=(["a/b"], [])),
@@ -277,21 +279,25 @@ class MainTests(unittest.TestCase):
         self.assertEqual(self.read_state()["issue_checked_at"]["a/b"], NOW.isoformat())
         self.assertEqual(self.read_state()["rot_index"], 1)
 
-    def test_required_notification_auth_failure_preserves_state(self):
+    def test_notification_auth_failure_degrades_to_digest_and_saves_state(self):
         for first_install in (False, True):
             with self.subTest(first_install=first_install):
                 if first_install:
                     self.state_file.unlink()
+                    self.undelivered.unlink(missing_ok=True)
                 with patch.object(monitor, "gh_get", side_effect=self.api(1)), \
                      patch.object(monitor, "feishu_token", side_effect=RuntimeError("offline")), \
                      patch.object(monitor, "send_card") as send:
-                    with self.assertRaisesRegex(RuntimeError, "offline"):
-                        monitor.main()
+                    monitor.main()
                 send.assert_not_called()
+                state = self.read_state()
+                self.assertEqual(state["last_check"], NOW.isoformat())
+                self.assertIn("a/b#0", state["seen"])
                 if first_install:
-                    self.assertFalse(self.state_file.exists())
+                    self.assertFalse(self.undelivered.exists())
                 else:
-                    self.assertEqual(self.read_state(), self.initial)
+                    lines = self.undelivered.read_text(encoding="utf-8").splitlines()
+                    self.assertEqual([json.loads(l)["key"] for l in lines], ["a/b#0"])
 
     def test_issue_notifications_include_every_item_in_batches(self):
         with patch.object(monitor, "gh_get", side_effect=self.api(25)), patch.object(monitor, "send_card") as send:
@@ -316,12 +322,30 @@ class MainTests(unittest.TestCase):
             monitor.main()
         send.assert_not_called()
 
-    def test_notification_failure_keeps_disk_state_for_retry(self):
+    def test_send_failure_degrades_to_digest_and_saves_state(self):
         with patch.object(monitor, "gh_get", side_effect=self.api(25)), patch.object(
                 monitor, "send_card", side_effect=["sent", RuntimeError("send failed")]):
-            with self.assertRaisesRegex(RuntimeError, "send failed"):
-                monitor.main()
-        self.assertEqual(self.read_state(), self.initial)
+            monitor.main()
+        state = self.read_state()
+        self.assertEqual(len(state["seen"]), 25)
+        lines = self.undelivered.read_text(encoding="utf-8").splitlines()
+        self.assertEqual({json.loads(l)["key"] for l in lines},
+                         {f"a/b#{n}" for n in range(25)})
+
+    def test_undelivered_digest_appends_across_rounds_and_caps_at_limit(self):
+        self.undelivered.write_text(
+            "\n".join(json.dumps({"ts": "x", "key": f"old{i}"})
+                      for i in range(monitor.UNDELIVERED_LIMIT)) + "\n",
+            encoding="utf-8")
+        events = [{"key": "a/b#1", "kind": "merged", "title": "t", "url": "u"}]
+        with patch.object(monitor, "gh_get", side_effect=self.api(0)), patch.object(
+                monitor, "poll_prs", return_value=(events, {}, True)), patch.object(
+                monitor, "feishu_token", side_effect=RuntimeError("offline")):
+            monitor.main()
+        lines = self.undelivered.read_text(encoding="utf-8").splitlines()
+        self.assertEqual(len(lines), monitor.UNDELIVERED_LIMIT)
+        self.assertEqual(json.loads(lines[0])["key"], "old1")
+        self.assertEqual(json.loads(lines[-1])["key"], "a/b#1")
 
     def test_legacy_state_gets_fixed_lookback_for_unscanned_repos(self):
         with patch.object(monitor, "gh_get", side_effect=self.api(0)), patch.object(monitor, "send_card"):

@@ -37,14 +37,18 @@ their previous data while successful queries can still produce notifications.
 
 After initialization, a successful round with no events saves scan progress without
 requesting a Feishu token. Feishu credentials and authentication are needed only
-when sending the initial online card or event notifications; authentication failures
-then preserve the previous state for retry.
+when sending the initial online card or event notifications.
 
-Issue cards contain at most 12 entries, with every batch sent before saving
-state. Any send failure leaves the previous state intact for retry. A retry may
-repeat cards already sent before a later failure, but does not silently consume
-unsent events. A fresh installation starts with a silent baseline and an online
-card; that start time also applies to rotation slices first scanned later.
+Issue cards contain at most 12 entries. Notification is best-effort: a Feishu
+authentication or send failure never fails the round. Scan progress is saved
+either way, so watermarks and the rotation keep advancing, and the round's
+events are appended to `undelivered.jsonl` (kept at the 200 most recent lines,
+committed together with `state.json`) instead of being dropped or retried by
+crashing runs. A permanently blocked channel therefore shows green runs and a
+readable digest rather than an endless red retry loop; the digest is the record
+to consult (or re-push manually) once the channel is fixed. A fresh installation
+starts with a silent baseline and an online card; that start time also applies
+to rotation slices first scanned later.
 
 State writes use an atomic replacement. A process lock held for the entire run
 prevents overlapping local runs that share `state.json`; the persistent

@@ -8,6 +8,11 @@ and pushes events as cards to a Feishu group via the Feishu Open API.
 
 State lives in state.json (committed back by the workflow). First run is a
 silent baseline + an "online" card. Standard library only.
+
+Notification is best-effort: a failing Feishu channel never fails the round.
+State is always saved (poll progress advances), and events that could not be
+pushed are appended to undelivered.jsonl (also committed by the workflow) so
+nothing is silently dropped while the channel is blocked.
 """
 import json
 import os
@@ -21,6 +26,8 @@ API = "https://api.github.com"
 FEISHU = "https://open.feishu.cn/open-apis"
 STATE_FILE = Path("state.json")
 REPOS_FILE = Path("repos.txt")
+UNDELIVERED_FILE = Path("undelivered.jsonl")
+UNDELIVERED_LIMIT = 200
 T3_SLICES = 3
 NOISE = ("ScreenContextAgent",)
 OWNER = "inchang-ing"
@@ -70,6 +77,17 @@ def save_state(state):
 def parse_time(value):
     result = datetime.fromisoformat(value.replace("Z", "+00:00"))
     return result.replace(tzinfo=timezone.utc) if result.tzinfo is None else result
+
+
+def record_undelivered(events, now):
+    """Append events the notification channel could not push, capped at the tail."""
+    if not events:
+        return
+    old = UNDELIVERED_FILE.read_text(encoding="utf-8").splitlines() if UNDELIVERED_FILE.exists() else []
+    lines = [json.dumps({"ts": now.isoformat(), **ev}, ensure_ascii=False, sort_keys=True)
+             for ev in events]
+    UNDELIVERED_FILE.write_text("\n".join((old + lines)[-UNDELIVERED_LIMIT:]) + "\n",
+                                encoding="utf-8")
 
 
 def http(method, url, payload=None, token=None, headers=None):
@@ -295,41 +313,57 @@ def run():
     if not issues_ok and not prs_ok:
         raise RuntimeError("All GitHub polls failed; state preserved")
 
-    if init or new_issues or pr_events:
+    pending = list(new_issues) + list(pr_events)
+    delivered = True
+    if init or pending:
         cfg = {"app_id": os.environ["FEISHU_APP_ID"],
                "app_secret": os.environ["FEISHU_APP_SECRET"],
                "chat_id": os.environ["FEISHU_CHAT_ID"]}
-        ftoken = feishu_token(cfg)
-
-    if init:
-        for it in new_issues:
-            seen[it["key"]] = now.isoformat()
-        for it in new_issues[:5]:
-            print(f"baseline issue: {it['key']} {it['title'][:60]}")
-        send_card(ftoken, cfg["chat_id"], "GitHub 监测已上线",
-                  f"本轮扫描 {len(repos)} 仓 · 监测 {len(current_prs)} 个在飞 PR\n"
-                  "按工作流配置定时运行，发现事件后推送到本群:新 issue / PR 合并 / 新评审 / 新评论")
-        print("baseline done")
+        ftoken = None
+        try:
+            ftoken = feishu_token(cfg)
+        except Exception as exc:
+            delivered = False
+            print(f"WARN: feishu auth failed; round events go to {UNDELIVERED_FILE}: {exc}")
+        if init:
+            for it in new_issues:
+                seen[it["key"]] = now.isoformat()
+            for it in new_issues[:5]:
+                print(f"baseline issue: {it['key']} {it['title'][:60]}")
+            if ftoken is not None:
+                try:
+                    send_card(ftoken, cfg["chat_id"], "GitHub 监测已上线",
+                              f"本轮扫描 {len(repos)} 仓 · 监测 {len(current_prs)} 个在飞 PR\n"
+                              "按工作流配置定时运行，发现事件后推送到本群:新 issue / PR 合并 / 新评审 / 新评论")
+                    print("baseline done")
+                except Exception as exc:
+                    print(f"WARN: baseline card failed (ignored): {exc}")
+        elif ftoken is not None:
+            try:
+                for start in range(0, len(new_issues), 12):
+                    batch = new_issues[start:start + 12]
+                    lines = [f"- [{i['repo']}#{i['num']}]({i['url']}) {i['title'][:80]}"
+                             f"{' `' + i['labels'] + '`' if i['labels'] else ''}"
+                             for i in batch]
+                    send_card(ftoken, cfg["chat_id"],
+                              f"捕获 {len(batch)} 条新 issue",
+                              "\n".join(lines))
+                for ev in pr_events:
+                    if ev["kind"] == "review":
+                        title = f"收到 {ev['delta']} 条新评审"
+                    elif ev["kind"] == "comments":
+                        title = f"新增 {ev['delta']} 条评论"
+                    else:
+                        title = {"merged": "🎉 PR 已合并", "closed": "PR 被关闭"}[ev["kind"]]
+                    send_card(ftoken, cfg["chat_id"], title,
+                              f"[{ev['key']}]({ev['url']}) {ev['title']}")
+            except Exception as exc:
+                delivered = False
+                print(f"WARN: feishu send failed; round events go to {UNDELIVERED_FILE}: {exc}")
+        if not init and not delivered:
+            record_undelivered(pending, now)
     else:
-        for start in range(0, len(new_issues), 12):
-            batch = new_issues[start:start + 12]
-            lines = [f"- [{i['repo']}#{i['num']}]({i['url']}) {i['title'][:80]}"
-                     f"{' `' + i['labels'] + '`' if i['labels'] else ''}"
-                     for i in batch]
-            send_card(ftoken, cfg["chat_id"],
-                      f"捕获 {len(batch)} 条新 issue",
-                      "\n".join(lines))
-        for ev in pr_events:
-            if ev["kind"] == "review":
-                title = f"收到 {ev['delta']} 条新评审"
-            elif ev["kind"] == "comments":
-                title = f"新增 {ev['delta']} 条评论"
-            else:
-                title = {"merged": "🎉 PR 已合并", "closed": "PR 被关闭"}[ev["kind"]]
-            send_card(ftoken, cfg["chat_id"], title,
-                      f"[{ev['key']}]({ev['url']}) {ev['title']}")
-        if not new_issues and not pr_events:
-            print("no events")
+        print("no events")
 
     for it in new_issues:
         seen[it["key"]] = now.isoformat()

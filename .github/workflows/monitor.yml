@@ -28,9 +28,11 @@ jobs:
           FEISHU_CHAT_ID: ${{ secrets.FEISHU_CHAT_ID }}
         run: python monitor.py
       - name: commit state
+        if: always()
         run: |
           git config user.name "inchang-ing"
           git config user.email "197932532+inchang-ing@users.noreply.github.com"
           git add state.json
+          if [ -f undelivered.jsonl ]; then git add undelivered.jsonl; fi
           git diff --cached --quiet || git commit -m "state update [skip ci]"
           git push
