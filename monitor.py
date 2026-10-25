@@ -419,7 +419,7 @@ def run():
     else:
         print("no events")
 
-    if not init:
+    if not init and pending:
         try:
             if not delivered:
                 gh_update_digest_issue(gh_token, pending)

@@ -49,7 +49,8 @@ file, rounds with undelivered events also comment them on (or open) a
 `monitor-digest` labeled issue in this repository while it runs inside GitHub
 Actions — GitHub emails the account owner about its own issues, so a blocked
 Feishu channel still surfaces within a round. The digest issue is closed
-automatically once a round delivers notifications again. A permanently blocked
+automatically once a round delivers notifications again. Quiet rounds leave the
+digest issue unchanged because no notification was sent to verify recovery. A blocked
 channel therefore shows green runs, a readable digest, and an open tracking
 issue instead of an endless red retry loop. A fresh installation starts with a
 silent baseline and an online card; that start time also applies to rotation

@@ -389,11 +389,37 @@ class MainTests(unittest.TestCase):
         with patch.dict(os.environ, GITHUB_REPOSITORY="own/repo"), \
              patch.object(monitor, "http", side_effect=self.digest_http(
                  [{"number": 7, "title": monitor.DIGEST_TITLE}], calls)), \
-             patch.object(monitor, "gh_get", side_effect=self.api(0)):
-            monitor.main()  # quiet round, notification channel healthy
+             patch.object(monitor, "gh_get", side_effect=self.api(1)), \
+             patch.object(monitor, "send_card") as send:
+            monitor.main()
+        send.assert_called_once()
         patches = [(m, u, p) for m, u, p in calls if m == "PATCH"]
         self.assertEqual(patches, [("PATCH", "https://api.github.com/repos/own/repo/issues/7",
                                     {"state": "closed"})])
+
+    def test_quiet_round_keeps_outage_digest_open_without_testing_channel(self):
+        calls = []
+        with patch.dict(os.environ, GITHUB_REPOSITORY="own/repo"), \
+             patch.object(monitor, "http", side_effect=self.digest_http([], calls)), \
+             patch.object(monitor, "gh_get", side_effect=self.api(1)), \
+             patch.object(monitor, "feishu_token", side_effect=RuntimeError("offline")):
+            monitor.main()
+        self.assertTrue(any(method == "POST" and url.endswith("/issues")
+                            for method, url, _ in calls))
+        undelivered = self.undelivered.read_bytes()
+        calls.clear()
+        with patch.dict(os.environ, GITHUB_REPOSITORY="own/repo"), \
+             patch.object(monitor, "http", side_effect=self.digest_http(
+                 [{"number": 9, "title": monitor.DIGEST_TITLE}], calls)), \
+             patch.object(monitor, "gh_get", side_effect=self.api(0)), \
+             patch.object(monitor, "feishu_token", side_effect=RuntimeError("offline")) as token, \
+             patch.object(monitor, "send_card") as send:
+            monitor.main()
+        token.assert_not_called()
+        send.assert_not_called()
+        self.assertEqual(calls, [])
+        self.assertEqual(self.undelivered.read_bytes(), undelivered)
+        self.assertEqual(self.read_state()["rot_index"], 2)
 
     def test_digest_issue_api_failure_does_not_fail_round(self):
         with patch.dict(os.environ, GITHUB_REPOSITORY="own/repo"), \
